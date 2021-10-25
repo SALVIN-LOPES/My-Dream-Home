@@ -1,12 +1,85 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGISTER PAGE</title>
+    <title>Register Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/register.css' %}">
 </head>
+
 <body>
-    <h1>REGISTER PAGE</h1>
+    <section>
+        <div class="imgBx">
+            <img src="{% static 'images/login-bg.jpg' %}" alt="login-bg-image">
+            <h1>Owning a home is a keystone of wealth… both financial affluence and emotional security.</h1>
+            <p>–Suze Orman</p>
+        </div>
+        <div class="contentBx">
+            <div class="formBx">
+                <h2>Register</h2>
+                <form action="" method="POST">
+                    {% csrf_token %}
+
+                    <div class="inputBx">
+                        <div class="icon-span-wrap">
+                            <span>Username</span>
+                            <!-- <img src="{% static 'images/user.png' %}" alt="user.png"> -->
+                        </div>
+                        <!-- <input type="text" name="username"> -->
+                        {{form.username}}
+                    </div>
+                    <div class="inputBx">
+                        <div class="icon-span-wrap">
+                            <span>Email</span>
+                            <!-- <img src="{% static 'images/email.png' %}" alt="user.png"> -->
+                        </div>
+                        <!-- <input type="email" name="email"> -->
+                        {{form.email}}
+                    </div>
+                    <div class="inputBx">
+                        <div class="icon-span-wrap">
+                            <span>Password</span>
+                            <!-- <img src="{% static 'images/padlock.png' %}" alt="padlock.png"> -->
+                        </div>
+                        <!-- <input type="password" name="password1"> -->
+                        {{form.password1}}
+                    </div>
+                    <div class="inputBx">
+                        <div class="icon-span-wrap">
+                            <span>Confirm password</span>
+                            <!-- <img src="{% static 'images/lock.png' %}" alt="lock.png"> -->
+                        </div>
+                        <!-- <input type="password" name="password2"> -->
+                        {{form.password2}}
+                    </div>
+                    <!-- <div class="inputBx">
+                        <div class="icon-span-wrap">
+                            <span>Date of Birth</span>
+                            <img src="{% static 'images/cake.png' %}" alt="cake.png"> -->
+                        <!-- </div> -->
+                        <!-- <input type="text" name="date"> -->
+                        <!-- {{form.date}} -->
+                    <!-- </div> -->
+                    <div class="remember">
+                        <label for="#"><input type="checkbox">Remember me</label>
+                    </div>
+                    <div class="inputBx">
+                        <input type="submit" value="Sign Up">
+                    </div>
+
+                    {{form.errors}}
+                    
+                    <div class="inputBx">
+                        <p>Already have an account? <a href="{% url 'login' %}">Sign In</a> </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </body>
+
 </html>

@@ -1,12 +1,58 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN PAGE</title>
+    <title>Login Page</title>
+    <link rel="stylesheet" type = "text/css" href="{% static '/css/login.css' %}">
 </head>
 <body>
-    <h1>LOGIN PAGE</h1>
+    <!-- <h1>LOGIN PAGE</h1> -->
+    <section>
+        <div class="imgBx">
+            <img src="{% static 'images/login-bg.jpg' %}" alt="login-bg-image">
+            <h1>Owning a home is a keystone of wealth… both financial affluence and emotional security.</h1>
+            <p>–Suze Orman</p>
+        </div>
+        <div class="contentBx">
+            <div class="formBx">
+                <h2>Login</h2>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <div class="inputBx">
+                        <span>Username</span>
+                        <input type="text" name = "username">
+                    </div>
+                    <div class="inputBx">
+                        <span>Password</span>
+                        <input type="password" name = "password">
+                    </div>
+                    <div class="remember">
+                        <label for="#"><input type="checkbox">Remember me</label>
+                    </div>
+                    <div class="inputBx">
+                        <input type="submit" value="Sign In" name = "#">
+                    </div>
+                    {% for message in messages %}
+                        <p>{{message}}</p>
+                    {% endfor %}
+                    <div class="inputBx">
+                        <p>Don't have an account? <a href="{% url 'register' %}">Sign Up</a> </p>
+                    </div>
+                </form>
+                <h3>Login with social media</h3>
+                <ul class="sci">
+                    <li><img src="{% static 'images/facebook.png' %}" alt="facebook image"></li>
+                    <li><img src="{% static 'images/twitter.png' %}" alt="twitter image"></li>
+                    <li><img src="{% static 'images/instagram.png' %}" alt="instagram image"></li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
 </body>
 </html>
