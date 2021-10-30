@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User,auth
 from .forms import CustomerUserForm
 from django.contrib import messages
-
+from .models import Customer
 from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 
@@ -49,19 +49,35 @@ def register(request):
         form  = CustomerUserForm()
         if request.method == 'POST':
             print('FORM IS SUBMITTED')
-            form  = CustomerUserForm(request.POST)
-            if form.is_valid():
-                print('FORM IS VALID')
-                form.save()
-                print('FORM IS SAVED')
-                print(form)
 
-                # user = form.cleaned_data.get('username')
+            try:
+                user = User.objects.get(email = request.POST.get('email'))
+            except User.DoesNotExist:
+            # Unable to find a user, this is fine
+                form  = CustomerUserForm(request.POST)
+                if form.is_valid():
+                    print('FORM IS VALID')
+                    form.save()
+                    print('FORM IS SAVED')
+                    print(form)
 
-                return redirect('login')
+                    customer = Customer.objects.create(
+                        user = User.objects.get(email = request.POST.get('email')),
+                        name = request.POST.get('username'),
+                        phone = request.POST.get('phone'),
+                        email = request.POST.get('email')
+                    )
+                    # user = form.cleaned_data.get('username')
 
-        context = {'form':form}
-        return render(request,'authentication/register.html',context)
+                    return redirect('login')
+
+                context = {'form':form}
+                return render(request,'authentication/register.html',context)
+            return render(request,'authentication/register.html',{'form':form})
+        return render(request,'authentication/register.html',{'form':form})
+
+                
+            
         
 @login_required(login_url='login')
 
