@@ -1,70 +1,71 @@
 {% extends 'authentication/main.html' %}
 {% load static %}
 {% block content %}
-    <style>
-        .options{
-            display: inline-flex;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 0 5px rgba(256,256,256,0,5);
-        }
-        .radio_option{
-            display: none;
-        }
-        .radio_label{
-            padding: 10px 20px;
-            font-size: 20px;
-            color: white;
-            background: lightsalmon;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        .radio_label:not(:last-of-type){
-            border-right: 1px solid orange;
-        }
-        .radio_option:checked + .radio_label {
-            background: orangered;
-        }
-    </style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <title>HOME PAGE</title>
+</head>
+
+<body>
     <div class="mainImage">
         {% include 'authentication/navbar.html' %}
-        <div class="content">
-            <div class="container">
-                <div class="subcontent">
-                    <div class="text" style=" margin-bottom: 4rem;">
-                        <h1 style="font-size: 45px;font-weight: bolder;">Find the Future Apartment of your Dreams</h1>
-                        <p>Having a dream home is everyone's desire without a doubt we're the right team that can help you to make it happen!</p>
-                    </div>
-                    <div class="options" >
-                        <input class="radio_option" checked type="radio" value="buy" name="option" id="radio_buy">
-                        <label for="radio_buy" class="radio_label">Buy</label> 
-                        <input class="radio_option" type="radio" value="buy" name="option" id="radio_sell">
-                        <label for="radio_sell" class="radio_label">Sell</label> 
-                        <input class="radio_option" type="radio" value="buy" name="option" id="radio_rent">
-                        <label for="radio_rent" class="radio_label">Rent</label> 
-                    </div>
-                    <div style="padding: 1rem; margin-bottom: 4rem;" >
-                        <div style="display: inline-block;">
-                            <p style="font-size: 25px; font-weight: bold;">Property Type</p>
-                            <select style="height: 35px;width: 150px;">
-                                <option>1BHK</option>
-                                <option>2BHK</option>
-                                <option>3BHK</option>
-                                <option>Delux</option>
-                            </select>
+        <!-- --------------------------SALVIN : HOME HTML---------------------------- -->
+        <div class="container">
+            <div class="content">
+                <div class="main-heading">
+                    <h1>Find Your Best Real Estate</h1>
+                </div>
+                <div class="sub-heading">
+                    <p>We handle everything for you under one roof.Now you finally save all the stress, time and extra
+                        costs,with hundreds of design possibilities from leading architects</p>
+                </div>
+            </div>
+            <div class="dummy-search">
+                <div class="search-box">
+                    <div class="city-box common-box">
+                        <div class="content-city">
+                            <p>City/streets</p>
                         </div>
-                        <div style="display: inline-block;margin-left: 1.5rem;">
-                            <p style="font-size: 25px; font-weight: bold;">Price</p>
-                            <select style="height: 35px;width: 150px;">
-                                <option>30L-40L</option>
-                                <option>40L-55L</option>
-                                <option>55L-80L</option>
-                                <option>80L and Above</option>
-                            </select>
+                        <div class="select-city">
+                            <strong>New York</strong>
                         </div>
                     </div>
+                    <div class="property-box common-box">
+                        <div class="content-property">
+                            <p>Property Type</p>
+
+                        </div>
+                        <div class="select-property">
+                            <strong>Minimalist</strong>
+                        </div>
+                    </div>
+                    <div class="price-box common-box">
+                        <div class="content-price">
+                            <p>Price Range</p>
+                        </div>
+                        <div class="select-price">
+                            <strong>$10,000 - $25,000</strong>
+                        </div>
+                    </div>
+                    <div class="search-box-icon common-box">
+                        <div class="search-icon">
+                            <a href="#(search)"><img src="{% static 'images/search.png' %}" alt="search-icon"></a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
+
+
     </div>
-{% endblock %}
+    {% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+/* -----------------------HOME PAGE : STYLING-------------------------- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat",sans-serif;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 7rem;
+}
+.container .content .main-heading h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 1rem;
+}
+.container .content .sub-heading p{
+    color: #DBDBDB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    max-width:100%;
+
+}
+.container .dummy-search{
+    background-color: white;
+    border-radius: 50px;
+    height: 5rem;
+    width: 41rem;
+    position: relative;
+
+}
+.container .dummy-search .search-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    margin-top:0;
+    position: absolute;
+    top: 0;
+
+}
+.container .dummy-search .search-box .city-box{
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+}
+.container .dummy-search .search-box .property-box{
+    margin-right: 2rem;
+}
+.container .dummy-search .search-box .price-box{
+    margin-right: 2rem;
+}
+.container .dummy-search .search-box .common-box{
+    /* margin-right: 4.5rem; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+.container .dummy-search .search-box .common-box .content-city p,.container .dummy-search .search-box .common-box .content-property p,.container .dummy-search .search-box .common-box .content-price p{
+    color: #AEAFB2;
+    margin-bottom: 0;
+    
+}
+
+
+.container .dummy-search .search-box .search-box-icon .search-icon a img{
+    height: 50px;
+    width: 50px;
+    background-color: #FFAC31;
+    padding: 10px;
+    border-radius: 50px;
+    
+}
+.container .dummy-search .search-box .search-box-icon .search-icon a{
+
+    
+}
