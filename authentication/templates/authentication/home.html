@@ -1,22 +1,18 @@
 {% extends 'authentication/main.html' %}
 {% load static %}
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/home.css' %}">
-    <title>HOME PAGE</title>
-</head>
-
-<body>
+    <!-- <style>
+        .feature{
+            height: 100vh;
+    width: 100%;
+    background-color: #d3d3d3;
+        }
+    </style>
     <div class="mainImage">
-        {% include 'authentication/navbar.html' %}
+    -->
         <!-- --------------------------SALVIN : HOME HTML---------------------------- -->
-        <div class="container">
+        <!-- <div class="cont">
             <div class="content">
                 <div class="main-heading">
                     <h1>Find Your Best Real Estate</h1>
@@ -30,31 +26,31 @@
                 <div class="search-box">
                     <div class="city-box common-box">
                         <div class="content-city">
-                            <p>City/streets</p>
+                            <strong>City/streets</strong>
                         </div>
                         <div class="select-city">
-                            <strong>New York</strong>
+                            <p>New York</p>
                         </div>
                     </div>
                     <div class="property-box common-box">
                         <div class="content-property">
-                            <p>Property Type</p>
+                            <strong>Property Type</strong>
 
                         </div>
                         <div class="select-property">
-                            <strong>Minimalist</strong>
+                            <p>Minimalist</p>
                         </div>
                     </div>
                     <div class="price-box common-box">
                         <div class="content-price">
-                            <p>Price Range</p>
+                            <strong>Price Range</strong>
                         </div>
                         <div class="select-price">
-                            <strong>$10,000 - $25,000</strong>
+                            <p>$10,000 - $25,000</p>
                         </div>
                     </div>
                     <div class="search-box-icon common-box">
-                        <div class="search-icon">
+                        <div class="search-icon" style="margin-bottom: 1rem;">
                             <a href="#(search)"><img src="{% static 'images/search.png' %}" alt="search-icon"></a>
                         </div>
                     </div>
@@ -64,8 +60,302 @@
         </div>
 
 
-    </div>
-    {% endblock %}
-</body>
+    </div> -->
 
-</html>
+    <!-- features -->
+    <!-- <div class="feature" style="color: red;z-index: 187987;" >
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. A dolores autem incidunt aliquam vero, facere numquam ex nisi, consequatur aliquid exercitationem commodi molestiae quaerat ad iure, nostrum sunt cupiditate obcaecati.
+    </div> -->
+
+    <style>
+        .feature{
+            min-height: 100vh;
+    width: 100%;
+    background-color: #d3d3d3;
+    color: white;
+        }
+        .cards{
+            border-radius: 20px;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #111;
+            transition: all 0.3s ease-in-out;
+        }
+        .cards:hover{
+            background-color: black;
+            transform: scale(1.05);
+        }
+        .featureImage{
+            height: 250px;
+            width: 90%;
+            margin: 0 auto;
+            border-radius: 20px;
+        }
+        
+        .service{
+            min-height: 100vh;
+            width: 100%;
+            background-color: #111;
+            color: white;
+            padding: 2rem;
+        }
+        .serviceContent{
+                color: black;
+                text-align: center;
+                transition: all 0.3s ease-in-out;
+            }
+            .serviceCard{
+                border-radius: 20px;
+                margin-top: 1.5rem;
+                transition: all 0.3s ease-in-out;
+                padding: 1rem;
+            }
+            .serviceCard:hover{
+                background-color: crimson;
+                color: white;
+            }
+            .serviceCard:hover .serviceContent{
+                transform: scale(1.1);
+                color: white;
+            }
+            .testimonial{
+                min-height: 100vh;
+                width: 100%;
+                background-color: #d3d3d3;
+            }
+            .sliderContainer{
+                padding: 2rem 4rem;
+            }
+            .sliderCard{
+                margin: 0 1rem;
+                padding: 1rem;
+                background-color: white;
+                color: black;
+            }
+            .avatar{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 1rem;
+            }
+            .slick-prev,.slick-next{
+                
+            }
+            
+        @media screen and (max-width:900px) {
+            .feature,.service,.testimonial{
+                min-height: 100vh;
+                width: 100%;
+            }
+            .sliderContainer{
+                padding: 2rem 3rem;
+            }
+            
+        }
+    </style>
+        
+        <!-- main -->
+        <div class="main" id="main">
+            <div class="mainContent">
+                <div >
+                    <h1 class="mainText" style="font-size: 40px;">Find Your Best Real Estate</h1>
+                </div>
+                <div >
+                    <p style="font-size:18px ;margin-bottom: 1rem;" class="subText">We handle everything for you under one roof.Now you finally save all the stress, time and extra
+                        costs,with hundreds of design possibilities from leading architects</p>
+                </div>
+                <div class="option">
+                    <div>
+                        <strong>City/Streets</strong>
+                        <p>New York</p>
+                    </div>
+                    <div>
+                        <strong>Select-Property</strong>
+                        <p>Minimalist</p>
+                    </div>
+                    <div>
+                        <strong>Select-Price</strong>
+                        <p>$10,000 - $25,000</p>
+                    </div>
+                    <div class="searchIcon">
+                        <img height="30px" width="30px" src="{% static 'images/search.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- feature -->
+        <div class="feature" style="padding: 2rem;" >
+            <div class="container" style="padding-top: 4rem;">
+                <div style="display: flex;justify-content: center;align-items: center;">
+                    <hi style="font-size:30px ; text-transform: uppercase;margin-bottom: 3rem;text-align: center;clip-path: polygon(100% 0,93% 50%,100% 99%,0% 100%,7% 50%,0% 0%);padding: 1rem 2rem;  background-color: black;">Feature Properties</hi>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                        <div class="card cards" style="">
+                            <img class="card-img-top featureImage" src="{% static 'images/Houses/HOUSE-01/f1.png' %}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                        <div class="card cards" style="">
+                            <img class="card-img-top featureImage" src="{% static 'images/Houses/HOUSE-02/f2.png' %}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-lg-4 col-sm-12">
+                        <div class="card cards" style="">
+                            <img class="card-img-top featureImage" src="{% static 'images/Houses/HOUSE-02/f3.png' %}" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- service -->
+        <div class="service">
+            <div style="text-align: center;display: flex;justify-content: center;align-items: center;flex-direction: column;padding-top: 5rem;">
+                <h1>The <span style="color: crimson;font-size: 35px;">Services</span> You Get From Restate</h1>
+                <p style="font-size: 18px;">Some people choose price as primary reason, Those companies that get customers because of low price will loose those customers.</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="card serviceCard">
+                            <div class="card-body serviceContent">
+                              <h5 class="card-title" style="font-weight: bold;font-size: 35px;">Buy Properties</h5>
+                              <p class="card-text">Find 19975+ latest real estate properties for safe in April 2021 . Search by price, size and preferred location.</p>
+                                <div style="display: flex;justify-content: center;align-items: center;">
+                                    <button class="btn btn-primary">View More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="card serviceCard">
+                            <div class="card-body serviceContent">
+                              <h5 class="card-title" style="font-weight: bold;font-size: 35px;">Sell Properties</h5>
+                              <p class="card-text">Sale is a transfer of ownership In exchange for a price paid or promised or part paid and part promised.</p>
+                              <div style="display: flex;justify-content: center;align-items: center;">
+                                <button class="btn btn-primary">View More</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-4">
+                        <div class="card serviceCard">
+                            <div class="card-body serviceContent">
+                              <h5 class="card-title" style="font-weight: bold;font-size: 35px;">Rent Properties</h5>
+                              <p class="card-text">Residental rental property refers to homes that are purchased by an investor and inhabited by tenants.</p>
+                              <div style="display: flex;justify-content: center;align-items: center;">
+                                <button class="btn btn-primary">View More</button>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+        <!-- testimonials and footer -->
+        <div class="testimonial">
+            <div style="display: flex;justify-content: center;align-items: center;padding-top: 5rem;">
+                <hi style="font-size:30px ; text-transform: uppercase;color:white;text-align: center;clip-path: polygon(100% 0,93% 50%,100% 99%,0% 100%,7% 50%,0% 0%);padding: 1rem 2rem;  background-color: black;">Testimonials</hi>
+            </div>
+            <p style="text-align: center;font-weight: bold;font-size: 18px;margin-top: 1rem;">What our clients say about us.</p>
+            <div class="container sliderContainer">
+                <div class="slider">
+                    <div class="slider_item"> 
+                        <div class="card sliderCard">
+                            <div class="card-body" style="text-align: center;">
+                                <div class="avatar" >
+                                    <img src="{% static 'images/t1.png' %}" height="75px" width="75px" style="border-radius: 50%;">
+                                </div>
+                              <h5 class="card-title">John Lee</h5>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="slider_item">
+                        <div class="card sliderCard">
+                            <div class="card-body" style="text-align: center;">
+                                <div class="avatar" >
+                                    <img src="{% static 'images/t2.png' %}" height="75px" width="75px" style="border-radius: 50%;">
+                                </div>
+                              <h5 class="card-title">Special title treatment</h5>
+                              <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                              <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="slider_item">
+                        <div class="card sliderCard">
+                            <div class="card-body" style="text-align: center;">
+                                <div class="avatar" >
+                                    <img src="{% static 'images/t3.png' %}" height="75px" width="75px" style="border-radius: 50%;">
+                                </div>
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider_item">
+                        <div class="card sliderCard">
+                            <div class="card-body" style="text-align: center;">
+                                <div class="avatar" >
+                                    <img src="{% static 'images/t4.png' %}" height="75px" width="75px" style="border-radius: 50%;">
+                                </div>
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider_item">
+                        <div class="card sliderCard">
+                            <div class="card-body" style="text-align: center;">
+                                <div class="avatar" >
+                                    <img src="{% static 'images/t5.png' %}" height="75px" width="75px" style="border-radius: 50%;">
+                                </div>
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider_item">
+                        <div class="card sliderCard">
+                            <div class="card-body" style="text-align: center;">
+                                <div class="avatar" >
+                                    <img src="{% static 'images/t6.png' %}" height="75px" width="75px" style="border-radius: 50%;">
+                                </div>
+                                <h5 class="card-title">Special title treatment</h5>
+                                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- footer -->
+
+
+    {% endblock %}
