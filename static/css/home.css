@@ -2,88 +2,64 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 
 *{
-    margin: 0;
     padding: 0;
+    margin: 0;
     box-sizing: border-box;
-    font-family: "Montserrat",sans-serif;
 }
-.container{
+.main{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url("/static/images/housebg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+.mainContent{
+    height: 100%;
+    width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     flex-direction: column;
-    margin-top: 7rem;
-}
-.container .content .main-heading h1{
-    display: flex;
-    justify-content: center;
     align-items: center;
+    word-wrap: break-word;
     color: white;
-    margin-bottom: 1rem;
+    text-align: center;
 }
-.container .content .sub-heading p{
-    color: #DBDBDB;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2rem;
-    max-width:100%;
-
-}
-.container .dummy-search{
+.option{
+    max-width: 850px;
+    width: 90%;
+    margin: 0 auto;
     background-color: white;
+    height: 80px;
     border-radius: 50px;
-    height: 5rem;
-    width: 41rem;
-    position: relative;
-
-}
-.container .dummy-search .search-box{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    flex-direction: row;
-    padding: 10px;
-    margin-top:0;
-    position: absolute;
-    top: 0;
-
+    color: black;
+    padding: 1rem;
 }
-.container .dummy-search .search-box .city-box{
-    margin-left: 2rem;
-    margin-right: 2rem;
-
+.subText{
+    max-width: 900px;
+    width: 80%;
+    margin: 0 auto;
 }
-.container .dummy-search .search-box .property-box{
-    margin-right: 2rem;
+.searchIcon{
+    cursor: pointer;
+    background-color: orange;border-radius: 50%;padding: 0.75rem;margin-bottom: 1rem;
+    transition: all 0.3s ease-in-out;
 }
-.container .dummy-search .search-box .price-box{
-    margin-right: 2rem;
-}
-.container .dummy-search .search-box .common-box{
-    /* margin-right: 4.5rem; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 10px;
-}
-.container .dummy-search .search-box .common-box .content-city p,.container .dummy-search .search-box .common-box .content-property p,.container .dummy-search .search-box .common-box .content-price p{
-    color: #AEAFB2;
-    margin-bottom: 0;
-    
+.searchIcon:hover{
+    background-color: orangered;
 }
 
+/* service */
 
-.container .dummy-search .search-box .search-box-icon .search-icon a img{
-    height: 50px;
-    width: 50px;
-    background-color: #FFAC31;
-    padding: 10px;
-    border-radius: 50px;
-    
-}
-.container .dummy-search .search-box .search-box-icon .search-icon a{
 
-    
+@media screen and (max-width: 900px) {
+    .mainText{
+        font-size:25px;
+    }
+    .subText{
+        font-size: 10px;
+    }
 }
