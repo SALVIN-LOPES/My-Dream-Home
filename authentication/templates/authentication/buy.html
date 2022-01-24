@@ -1,0 +1,109 @@
+{% extends 'authentication/main.html' %}
+{% load static %}
+
+{% block title %}Buy House{% endblock %}
+
+
+{% block content %}
+
+<div class="balance">
+    Bal : <span>&#8377;</span> {{cur_balance}}
+  </div>
+
+    <div class="light_grey_bg customPadding" >
+        <!-- <p style="text-align: center;">{{msg}}</p> -->
+        <div class="flex-center">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li style="color: red; font-weight: bolder;" {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-12 mb-4">
+                    <div class="accordion " id="accordionPanelsStayOpenExample">
+                        <div class="accordion-item">
+                          <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                            <button style="color: black !important;" class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                              Apply Filters <i style="margin-left: 1rem;" class="fas fa-filter"></i>
+                            </button>
+                          </h2>
+                          <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
+                            <div class="accordion-body">
+                                <form method="POST" class="filter-form" action="{% url 'filter' %}">
+                                    {% csrf_token %}
+                                    <input type="text" class="form-control" name="location" style="margin-bottom: 1rem;" placeholder="Location">
+                                    <i class="fas fa-caret-left" onclick="decreasePrice();"></i>
+                                    <input type="range" id="range" class="form-range range" name="rangeInput" min="1" max="1000" onchange="updateTextInput(this.value);">
+                                    <i class="fas fa-caret-right" onclick="increasePrice();" ></i>
+                                    <div class="flex-center  mb-2">
+                                        <span>Price: </span>
+                                        <div style="margin-left: 0.1rem;">
+                                            <span >&#8377;</span> <span style="margin-right: 0.1rem;" class="rangeNumber" id="priceRange"  value="">500</span>
+                                            <label >Lac</label>
+                                        </div>
+                                    </div>
+                                    
+                                    <select name="property_type" class="form-select"  style="margin-bottom: 1rem;" >
+                                        <option value="All">All</option>
+                                        <option value="1BHK">1BHK </option>
+                                        <option value="2BHK">2BHK</option>
+                                        <option value="3BHK">3BHK</option>
+                                        <option value="4+ BHK">4+ BHK</option>
+                                    </select>
+                                    <select name="view_categories" class="form-select" style="margin-bottom: 1rem;" >
+                                        <option value="Any">Any</option>
+                                        <option value="Side View">Side View</option>
+                                        <option value="Front View">Front View</option>
+                                        <option value="Back View">Back View</option>
+                                    </select>
+                                    <input type="text" name="city" class="form-control" style="margin-bottom: 1rem;" placeholder="City">
+                                    <input type="text" name="state" class="form-control" style="margin-bottom: 1rem;" placeholder="State">
+                                    <input type="submit" class="btn btn-primary" style="margin-bottom: 1rem;width: 100%;" value="Apply Filter">
+                                </form>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+
+                   
+                </div>
+                <div class="col-lg-9 col-md-9 col-sm-12">
+                    <div class="row">
+                       {% if img_house %}
+                        
+                            {% for house_img,house_detail in img_house.items %}
+                                <div class="col-lg-4 col-md-6 col-sm-12">
+                                    <div class="card buyCard mb-4" style="width: 100%;">
+                                        <img src='{{ house_img.image.url }}' class="card-img-top cardImg" alt="...">
+                                        <div class="card-body">
+                                        <!-- <h5 class="card-title">Card title</h5>
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                                            <div class="flex-prop">
+                                                <h5 class="card-title"> <span>&#8377;</span> {{house_detail.price}}</h5>
+                                                <h5 class="card-title">{{house_detail.property_type}}</h5>
+                                            </div>
+                                            <div class="flex-prop">
+                                                <h5 class="card-text">{{house_detail.view}}</h5>
+                                                <h5 class="card-text capitalizeText">
+                                                    {{house_detail.location}}
+                                                </h5>
+                                            </div>
+                                            <a href="{% url 'individual_house' house_detail.id %}" class="mt-1 btn btn-dark btn-block w-100">View More</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                       {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
