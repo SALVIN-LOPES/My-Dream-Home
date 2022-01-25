@@ -1,0 +1,129 @@
+{% extends 'authentication/main.html' %}
+{% load static %}
+
+{% block title %}Individual House{% endblock %}
+{% block content %}
+
+<div class="balance">
+  Bal : <span>&#8377;</span> {{cur_balance}}
+</div>
+<div class="light_grey_bg" style="padding-top: 8rem;padding-bottom: 4rem;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+              <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active carouselCard">
+                    <img src="{{single_photo.image.url}}" class="d-block w-100" alt="...">
+                  </div>
+                  
+                  {% for img in photo %}
+                  <div class="carousel-item carouselCard">
+                    <img src="{{ img.image.url }}" class="d-block w-100" alt="...">
+                  </div>
+                {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+              <div class="container customPaddingTop">
+                <div class="row mb-1 customPaddingLeft">
+                  <div class="rectangle customMarginRight col-lg-3 col-md-3   ">
+                    <strong> <small>Location</small></strong>
+                    <p class="capitalizeText">{{house_detail.location}}</p>
+                 
+                  </div>
+                  <div class="rectangle customMarginRight col-lg-3 col-md-3   ">
+                    <strong><small>Property Type</small></strong>
+                    <p>{{house_detail.property_type}}</p>
+                    
+                  </div>
+                  <div class="rectangle  col-lg-3 col-md-3 ">
+                    
+                    <strong><small>Price</small></strong>
+                     <p>{{house_detail.price}}</p>
+                    
+                  </div>
+                </div>
+               
+                <div class="row mb-1 customPaddingLeft">
+                    <div class="rectangle customMarginRight col-lg-3 col-md-3   ">
+                      <strong><small>View</small></strong>
+                      <p>{{house_detail.view}}</p>
+                    
+                    </div>
+                    <div class="rectangle customMarginRight col-lg-3 col-md-3   ">
+                      <strong><small>City</small></strong>
+                      <p class="capitalizeText">{{house_detail.city}}</p>
+                    
+                    </div>
+                    <div class="rectangle  col-lg-3 col-md-3 ">
+                      <strong><small>State</small></strong>
+                      <p class="capitalizeText">{{house_detail.state}}</p>
+                      
+                    </div>
+                </div>
+                <div class="row mb-1">
+                    <div class="rectangle col-lg-12 col-md-12 sol-sm-12 sol-xs-12">
+                      <strong><small>Address</small></strong>
+                      <p>{{house_detail.address}}</p>
+                      
+                    </div>
+                </div>
+                <a href="{% url 'change_customer' house_detail.id %}" class="btn btn-dark" style="width: 100%;">Buy</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+<!-- <script>
+    $(document).ready(function(){
+       
+$('.slider').slick({
+  dots: true,
+  infinite: true,
+  
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+}); 
+    });
+</script> -->

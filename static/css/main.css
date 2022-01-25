@@ -1,4 +1,67 @@
-/* ------------------------------MAIN : STYLING-------------------------------- */
+/* utility classes */
+.customMarginRight{
+    margin-right: 1rem;
+}
+.customPadding{
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+}
+.capitalizeText{
+    text-transform: capitalize;
+}
+.light_grey_bg{
+    background-color: #eaeaea;
+    min-height: 100vh;
+}
+.customPaddingTop{
+    
+    padding-top: 4rem;
+}
+.customPaddingLeft{
+    padding-left: 4rem;
+}
+.flex-prop{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.balance{
+    position: fixed;
+    right: 2rem;
+    top: 0.8rem;
+    font-size: 20px;
+    z-index: 10;
+}
+@media screen and (max-width:993px) {
+    .balance{
+        right: 5rem;
+    }
+    .customPaddingLeft{
+        padding-left: 0;
+    }
+    .customPaddingTop{
+        padding-top: 0;
+    }
+}
+
+/* navbar styling */
+.right{
+    margin-right: 13rem;
+}
+@media screen and (max-width:992px) {
+    .right{
+        margin-right: 0;
+    }
+}
+
+/* main page styling */
 .maind{
     height: 100vh;
     width: 100vw;
@@ -8,3 +71,282 @@
     background-repeat: no-repeat; 
 }
 
+.feature{
+    min-height: 100vh;
+width: 100%;
+background-color: #eaeaea;
+color: white;
+}
+.containers{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.cards{
+    border-radius: 20px;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #111;
+    transition: all 0.3s ease-in-out;
+}
+.cards:hover{
+    background-color: black;
+    transform: scale(1.05);
+}
+.featureImage{
+    height: 250px;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+.option{
+    font-size: 1.3rem; padding: 0.5rem;
+}
+.service{
+    min-height: 100vh;
+    width: 100%;
+    background-color: #111;
+    color: white;
+    padding: 2rem;
+}
+.serviceContent{
+        color: black;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+        flex: 0 1 auto !important;
+    }
+    .serviceCard{
+        border-radius: 20px;
+        margin-top: 1.5rem;
+        transition: all 0.3s ease-in-out;
+        padding: 1rem;
+        height: 260px;
+    }
+    .serviceCard:hover{
+        background-color: crimson;
+        color: white;
+    }
+    .serviceCard:hover .serviceContent{
+        transform: scale(1.1);
+        color: white;
+    }
+    .testimonial{
+        min-height: 100vh;
+        width: 100%;
+        padding: 2rem;
+        background-color: #eaeaea;
+    }
+    .slick-prev:before, .slick-next:before{
+        color: black !important;
+    }
+    
+    .sliderContainer{
+        padding: 2rem 4rem;
+    }
+    .sliderCard{
+        margin: 0 1rem;
+        padding: 1rem;
+        background-color: white;
+        color: black;
+    }
+    .avatar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
+    .footer{
+        background-color: #111;
+        width: 100%;
+        padding: 2rem 0;
+    }
+    .footer_container{
+        padding: 0 2rem;
+    }
+    .content_header{
+        color: white;
+    }
+    .footer_text{
+        cursor: pointer;
+        color: #eaeaea;
+        transition: all 0.3s ease-in-out;
+    }
+    .footer_content{
+        margin-top: 1rem;
+    }
+    .footer_text:hover{
+        color: white;
+    }
+
+@media screen and (max-width:900px) {
+    .feature,.service,.testimonial{
+        min-height: 100vh;
+        width: 100%;
+    }
+    .sliderContainer{
+        padding: 2rem 3rem;
+    }
+    .cards{
+        padding: 0.5rem 0;
+    }
+    .option{
+        font-size: 1rem; padding: 0.5rem;
+    }
+    .sliderCard{
+        margin: 0 0rem;
+        background-color: white;
+        color: black;
+    }
+    .serviceCard{
+        margin: 0 0;
+        border-radius: 20px;
+        margin-top: 1.5rem;
+        transition: all 0.3s ease-in-out;
+        
+        
+    }
+    
+}
+@media screen and (max-width:767px) {
+    .option{
+        border-radius: 20px !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 0.5rem !important;
+        padding-left: 0.5rem !important;
+        padding-right: 0.5rem !important
+    }
+}
+@media screen and (max-width:400px) {
+    .serviceCard{
+        height: 300px;
+    }
+}
+
+
+
+/* sell page styling */
+.sellPage{
+    background-color: hsl(0, 6%, 85%);
+    padding:0.5rem 2rem;
+    max-width: 600px;
+    margin:5rem auto;
+    border-radius: 20px;
+}
+.sellPage input , .sellPage select,.sellPage textarea{
+    margin-bottom: 1rem;
+}
+.sellForm{
+    margin: 5rem 0.5rem;
+}
+
+@media screen and (max-width:992px) {
+    .sellForm{
+        margin: 3rem 0;
+    }
+}
+@media screen and (max-width:768px) {
+    .sellPage{
+        max-width: 400px;
+        margin:3rem auto;
+    }
+}
+
+
+/* buy page styling */
+.buyCard{
+    height: 450px;
+    border-radius:10px ;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+}
+
+.cardImg{
+    height: 300px;
+    width: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+/* individual house page house.html */
+
+.carouselCard{
+    height: 100%;
+    border-radius: 10px;
+}
+.carouselCard img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+.rectangle{
+    border-radius: 20px;
+    padding: 1rem;
+    position: relative;
+    margin-bottom: 1rem;
+    /* margin-right: 1rem; */
+    
+    border: 1px solid #111;
+}
+
+.rectangle p{
+    font-size: 20px;
+}
+.carousel{
+    height: 550px !important;
+}
+.carousel-inner{
+    height: 550px !important;
+}
+@media screen and (max-width:992px) {
+    .rectangle{
+        text-align: center;
+    }
+}
+.desktopAccordion{
+    display: block !important;
+}
+.mobileAccordion{
+    display: none !important;
+}
+@media screen and (max-width:768px) {
+    .desktopAccordion{
+        display: none !important;
+    }
+    .mobileAccordion{
+        display: block !important;
+    }
+    .carousel{
+        height: 400px !important;
+    }
+    .carousel-inner{
+        height: 400px !important;
+    }
+}
+
+
+/* filter page styling */
+
+.range{
+    width: 90%;
+    margin: 3px 1rem;
+    cursor: pointer;
+}
+.rangeNumber{
+    text-align: center;
+}
+.filter-form{
+    position: relative;
+}
+.fa-caret-left{
+    position: absolute;
+    left: 0px;
+    font-size: 25px;
+    top: 3.5rem;
+    cursor: pointer;
+}
+.fa-caret-right{
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    font-size: 25px;
+    top: 3.5rem;
+}

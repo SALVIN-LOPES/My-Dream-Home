@@ -1,0 +1,228 @@
+{% extends 'authentication/main.html' %} {% load static %} 
+{% block title %}Edit House{% endblock %}
+{% block content %}
+
+<div class="balance">Bal : <span>&#8377;</span> {{cur_balance}}</div>
+<div class="light_grey_bg" style="padding-top: 8rem; padding-bottom: 4rem">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 mb-4">
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active carouselCard">
+              <img
+                src="{{single_photo.image.url}}"
+                class="d-block w-100"
+                alt="..."
+              />
+            </div>
+
+            {% for img in photo %}
+            <div class="carousel-item carouselCard">
+              <img src="{{ img.image.url }}" class="d-block w-100" alt="..." />
+            </div>
+            {% endfor %}
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleControls"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="container">
+            <div class="row rectangle mb-3 customPaddingLeft">
+              <div class="col-lg-4 col-md-4">
+                <strong> <small>Location</small></strong>
+                <input
+                  type="text"
+                  class="form-control capitalizeText"
+                  name="location"
+                  value="{{house_detail.location}}"
+                  required
+                />
+              </div>
+              <div class="col-lg-4 col-md-4">
+                <strong><small>Property Type</small></strong>
+                <select
+                  name="property_type"
+                  class="form-select"
+                  style="margin-bottom: 1rem"
+                >
+                  {% if house_detail.property_type == "1BHK" %}
+                  <option selected value="1BHK">1BHK</option>
+                  <option value="2BHK">2BHK</option>
+                  <option value="3BHK">3BHK</option>
+                  <option value="4+ BHK">4+ BHK</option>
+                  {% elif house_detail.property_type == "2BHK" %}
+                  <option value="1BHK">1BHK</option>
+                  <option selected value="2BHK">2BHK</option>
+                  <option value="3BHK">3BHK</option>
+                  <option value="4+ BHK">4+ BHK</option>
+                  {% elif house_detail.property_type == "3BHK" %}
+                  <option value="1BHK">1BHK</option>
+                  <option value="2BHK">2BHK</option>
+                  <option selected value="3BHK">3BHK</option>
+                  <option value="4+ BHK">4+ BHK</option>
+                  {% else %}
+                  <option value="1BHK">1BHK</option>
+                  <option value="2BHK">2BHK</option>
+                  <option value="3BHK">3BHK</option>
+                  <option selected value="4+ BHK">4+ BHK</option>
+                  {% endif %}
+                </select>
+              </div>
+              <div class="col-lg-4 col-md-4">
+                <strong><small>Price</small></strong>
+                <input
+                  type="number"
+                  min="2000000"
+                  max="100000000"
+                  class="form-control"
+                  name="price"
+                  value="{{house_detail.price}}"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="row rectangle mb-3 customPaddingLeft">
+              <div class="col-lg-4 col-md-4">
+                <strong><small>View</small></strong>
+                <select
+                  name="view_categories"
+                  class="form-select"
+                  style="margin-bottom: 1rem"
+                >
+                  {% if house_detail.view == "Side View" %}
+                  <option selected value="Side View">Side View</option>
+                  <option value="Front View">Front View</option>
+                  <option value="Back View">Back View</option>
+                  {% elif house_detail.view == "Front View" %}
+                  <option value="Side View">Side View</option>
+                  <option selected value="Front View">Front View</option>
+                  <option value="Back View">Back View</option>
+                  {% else %}
+                  <option value="Side View">Side View</option>
+                  <option value="Front View">Front View</option>
+                  <option selected value="Back View">Back View</option>
+                  {% endif %}
+                </select>
+              </div>
+              <div class="col-lg-4 col-md-4">
+                <strong><small>City</small></strong>
+                <input
+                  type="text"
+                  class="form-control capitalizeText"
+                  name="city"
+                  value="{{house_detail.city}}"
+                  required
+                />
+              </div>
+              <div class="col-lg-4 col-md-4">
+                <strong><small>State</small></strong>
+                <input
+                  type="text"
+                  class="form-control capitalizeText"
+                  name="state"
+                  value="{{house_detail.state}}"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row mb-1">
+              <div class="rectangle col-lg-12 col-md-12 sol-sm-12 sol-xs-12">
+                <strong><small>Files</small></strong>
+                <input
+                  type="file"
+                  name="images"
+                  value=""
+                  class="form-control-file"
+                  id="images"
+                  multiple
+                />
+              </div>
+            </div>
+            <div class="row mb-1">
+              <div class="rectangle col-lg-12 col-md-12 sol-sm-12 sol-xs-12">
+                <strong><small>Address</small></strong>
+                <textarea rows="3" name="address" class="form-control" required>{{house_detail.address}}</textarea
+                >
+              </div>
+            </div>
+            <input
+              value="Apply Change"
+              href="#"
+              type="submit"
+              class="btn btn-dark"
+              style="width: 100%"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- <script>
+    $(document).ready(function(){
+       
+$('.slider').slick({
+  dots: true,
+  infinite: true,
+  
+  speed: 300,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true
+      }
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+    // You can unslick at a given breakpoint now by adding:
+    // settings: "unslick"
+    // instead of a settings object
+  ]
+}); 
+    });
+</script> -->

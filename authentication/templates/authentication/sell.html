@@ -1,0 +1,82 @@
+{% extends 'authentication/main.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+<div class="balance">
+  Bal : <span>&#8377;</span> {{cur_balance}}
+</div>
+<div class="pt-5">
+  <div class="container sellPage"  >
+    <form method="POST" class="sellForm" action="" id="house_form" enctype="multipart/form-data">
+     {% csrf_token %}
+ 
+         <input type="text" class="form-control" name='location' placeholder="Location..." required>
+ 
+         <select name="property_type" class="form-select" >
+             <option value="1BHK">1BHK </option>
+             <option value="2BHK">2BHK</option>
+             <option value="3BHK">3BHK</option>
+             <option value="4+ BHK">4+ BHK</option>
+           </select>
+ 
+           <input type="number" min="2000000" max="100000000" class="form-control" name='price' placeholder="Price..." required>
+ 
+           <select name="view_categories" class="form-select" >
+             <option value="Side View">Side View</option>
+             <option value="Front View">Front View</option>
+             <option value="Back View">Back View</option>
+           </select>
+ 
+           <input type="number" class="form-control" name='floor' placeholder="Floor..." required>
+ 
+           <textarea rows="3" name="address" class="form-control" placeholder="Address..." required></textarea>
+ 
+           <input type="text" class="form-control" name='city' placeholder="City..." required>
+ 
+           <input type="text" class="form-control" name='state' placeholder="State..." required>
+           
+           <!-- <select name="purpose" class="form-select" >
+              <option value="Rent">Rent</option>
+             <option value="Sell">Sell</option>
+           </select> -->
+         
+         <input type="file" name="images" class="form-control-file" id="images" required multiple>
+   
+         <input type="submit" value="submit" class="btn btn-dark form-control">
+    </form>
+ </div>
+</div>
+{% endblock %}
+
+<!-- <label>Location</label>
+<input type="text" name="location" >
+
+<label for="property_type">Property type:</label>
+ <select id="property_type" name="property_type" form="house_form">
+     <option value="1BHK">1BHK</option>
+     <option value="2BHK">2BHK</option>
+     <option value="3BHK">3BHK</option>
+     <option value="4BHK">4BHK</option>
+ </select>
+ <label>Price</label>
+ <input type="text" name="price" >
+ <label for="view">View:</label>
+ <select id="view" name="view" form="house_form">
+     <option value="side_view">Side_View</option>
+     <option value="front_view">Front_View</option>
+     <option value="back_view">Back_View</option>
+ </select>
+ <label>Floor</label>
+ <input type="text" name="floor" >
+ <label>Address</label>
+ <textarea rows="3" cols="5" type="text" name="address" ></textarea>
+
+ <label>City</label>
+ <input type="text" name="city" >
+ <label>State</label>
+ <input type="text" name="state" >
+ <label>Images</label>
+ <input type="file" multiple name="images" > -->

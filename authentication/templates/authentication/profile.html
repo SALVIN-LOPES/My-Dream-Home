@@ -1,0 +1,57 @@
+{% extends 'authentication/main.html' %} {% load static %} 
+{% block title %}Profile{% endblock %}
+{% block content %}
+
+<div class="balance">Bal : <span>&#8377;</span> {{cur_balance}}</div>
+
+<div class="" style="min-height: 100vh">
+  <div class="container customPadding">
+    <div class="row">
+      {% if img_house %} {% for house_img,house_detail in img_house.items %}
+      <div class="col-lg-4 col-md-6 col-sm-12">
+        <div class="card buyCard mb-4" style="width: 100%">
+          <img
+            src="{{ house_img.image.url }}"
+            class="card-img-top cardImg"
+            alt="..."
+          />
+          <div class="card-body">
+            <!-- <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <div class="flex-prop">
+              <h5 class="card-title">
+                <span>&#8377;</span> {{house_detail.price}}
+              </h5>
+              <h5 class="card-title">{{house_detail.property_type}}</h5>
+            </div>
+            <div class="flex-prop">
+              <h5 class="card-text">{{house_detail.view}}</h5>
+              <h5 class="card-text capitalizeText">
+                {{house_detail.location}}
+              </h5>
+            </div>
+            {% if house_detail.purpose != "Sell" %}
+            <div class="flex-prop">
+              <a
+                href="{% url 'edit_house' house_detail.id %}"
+                class="mt-1 btn btn-warning btn-block w-50"
+                >Edit</a
+              >
+              <a href="{% url 'change_selling' house_detail.id %}"  id="sell" class="mt-1 btn btn-primary btn-block w-50"
+                >Sell</a
+              >
+            </div>
+            {% else %}
+            <a href="{% url 'change_withdrawing' house_detail.id %}"  id="withdraw" class="mt-1 btn btn-dark btn-block w-100"
+              >Withdraw</a
+            >
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %} {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
