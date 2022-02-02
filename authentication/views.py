@@ -12,6 +12,7 @@ from django.contrib.auth import authenticate,login,logout
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.contrib import messages
+import random
 # from authentication.decorators import unauthenticated_user
 
 
@@ -22,13 +23,17 @@ def get_cur_balance(request):
     customer = Customer.objects.get(email = cur_user.email)
     return customer.balance
 
+sale_houses = list(House.objects.all())
 # Create your views here.
 @login_required(login_url='login')
-
 def home(request):
     cur_balance = get_cur_balance(request)
-    context = {'cur_balance':cur_balance}
-    
+    saleHouse = random.sample(sale_houses,3)
+    sale={}
+    for i in saleHouse:
+        image = Image.objects.filter(house_id = i.id).first()
+        sale[image] = i
+    context={'sale':sale,'cur_balance':cur_balance}
     return render(request,'authentication/home.html',context)
 
 def loginPage(request):
@@ -63,18 +68,22 @@ def register(request):
 
             try:
                 user = User.objects.get(email = request.POST.get('email'))
+                if(user):
+                    form  = CustomerUserForm(request.POST)
+                    context={'message':"User with that Email already Exist...!",'form':form}
+                    return render(request,'authentication/register.html',context)
             except User.DoesNotExist:
             # Unable to find a user, this is fine
                 form  = CustomerUserForm(request.POST)
                 if form.is_valid():
                     form.save()
-                    print(form)
 
                     customer = Customer.objects.create(
                         user = User.objects.get(email = request.POST.get('email')),
                         name = request.POST.get('username'),
                         phone = request.POST.get('phone'),
-                        email = request.POST.get('email')
+                        email = request.POST.get('email'),
+                        balance = 100000000,
                     )
                     # user = form.cleaned_data.get('username')
 
@@ -117,100 +126,100 @@ def filterPage(request):
                     if(view_cat == "Any"):
                         houses_obj = House.objects.filter(~Q(email=cur_user.email) , purpose="Sell", price__gte = minRange , price__lte = maxRange )
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  view = view_cat)
                 else:
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  property_type = p_type)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  property_type = p_type)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  property_type = p_type , view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  property_type = p_type , view = view_cat)
             else:
                 if(p_type == "All"):
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  state = states)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  state = states,view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  state = states,view = view_cat)
                 else:
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  state = states,property_type = p_type)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  state = states,property_type = p_type)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  state = states,property_type = p_type , view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  state = states,property_type = p_type , view = view_cat)
         else:
             if(len(states) == 0):
                 if(p_type == "All"):
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  city = cty)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  city = cty)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  city = cty,view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  city = cty,view = view_cat)
                 else:
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  city = cty,property_type = p_type)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  city = cty,property_type = p_type)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  city = cty,property_type = p_type , view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  city = cty,property_type = p_type , view = view_cat)
             else:
                 if(p_type == "All"):
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  city = cty,state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  city = cty,state = states)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  city = cty,view = view_cat , state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  city = cty,view = view_cat , state = states)
                 else:
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  city = cty,property_type = p_type , state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  city = cty,property_type = p_type , state = states)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  city = cty,property_type = p_type , view = view_cat , state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  city = cty,property_type = p_type , view = view_cat , state = states)
     else:
         if(len(cty)==0):
             if(len(states) == 0):
                 if(p_type == "All"):
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc , view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc , view = view_cat)
                 else:
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc , property_type = p_type)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc , property_type = p_type)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc , property_type = p_type , view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc , property_type = p_type , view = view_cat)
             else:
                 if(p_type == "All"):
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc , state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc , state = states)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc , state = states,view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc , state = states,view = view_cat)
                 else:
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc , state = states,property_type = p_type)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc , state = states,property_type = p_type)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc , state = states,property_type = p_type , view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc , state = states,property_type = p_type , view = view_cat)
         else:
             if(len(states) == 0):
                 if(p_type == "All"):
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc , city = cty)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc , city = cty)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) ,purpose="Sell",  location = loc , city = cty,view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange ,purpose="Sell",  location = loc , city = cty,view = view_cat)
                 else:
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , purpose="Sell" , location = loc , city = cty,property_type = p_type)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange , purpose="Sell" , location = loc , city = cty,property_type = p_type)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , purpose="Sell" , location = loc , city = cty,property_type = p_type , view = view_cat)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange , purpose="Sell" , location = loc , city = cty,property_type = p_type , view = view_cat)
             else:
                 if(p_type == "All"):
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , purpose="Sell" , location = loc , city = cty, state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange , purpose="Sell" , location = loc , city = cty, state = states)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , purpose="Sell" , location = loc , city = cty,view = view_cat , state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange , purpose="Sell" , location = loc , city = cty,view = view_cat , state = states)
                 else:
                     if(view_cat == "Any"):
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , purpose="Sell" , location = loc , city = cty,property_type = p_type , state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange , purpose="Sell" , location = loc , city = cty,property_type = p_type , state = states)
                     else:
-                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , purpose="Sell" , location = loc , city = cty,property_type = p_type , view = view_cat , state = states)
+                        houses_obj = House.objects.filter( ~Q(email=cur_user.email) , price__gte = minRange , price__lte = maxRange , purpose="Sell" , location = loc , city = cty,property_type = p_type , view = view_cat , state = states)
     
     
     img_house={}
     for hou in houses_obj:
         photo = Image.objects.filter(house_id = hou.id).first()
         img_house[photo]= hou
-    context={ 'contents':'No House Found...','img_house':img_house , 'form_detail':form_detail,'cur_balance':cur_balance , 'houses_obj':houses_obj}
+    context={ 'message':"There is no house for Sell at present...!",'img_house':img_house , 'form_detail':form_detail,'cur_balance':cur_balance , 'houses_obj':houses_obj}
     return render(request,'authentication/filter.html',context)
 
 @login_required(login_url='login')
@@ -278,7 +287,7 @@ def profilePage(request):
     for hou in houses:
         photo = Image.objects.filter(house_id = hou.id).first()
         img_house[photo]= hou
-    context={'img_house':img_house,'cur_balance':cur_balance}
+    context={'img_house':img_house,'cur_balance':cur_balance,'message':"You don't have any house yet...! "}
     return render(request,"authentication/profile.html",context)
 
 @login_required(login_url='login')
@@ -343,7 +352,12 @@ def editHousePage(request,pk):
         
         return redirect('profile')
     return render(request,"authentication/edit_house.html",context)
-    
+
+@login_required(login_url='login')
+def deleteHousePage(request , pk):
+    House.objects.filter(id=pk).delete()
+    return redirect("profile")
+
 @login_required(login_url='login')
 def changeSellingPage(request,pk):
     House.objects.filter(id=pk).update(purpose = "Sell")
@@ -366,15 +380,16 @@ def changeCustomerPage(request,pk):
         cur_user = request.user
         customer_obj = Customer.objects.get(email=cur_user.email)
         newBalance = cur_balance - house_obj.price
-        oldCustomer = Customer.objects.filter(email = house_obj.email)
-        oldCustomerBalance = oldCustomer.balance
-        oldCustomerBalance += house_obj.price
-        oldCustomer.update(balance = oldCustomerBalance)
-        customer_obj.update(balance =newBalance)
-        house_obj.update(customer = customer_obj,email=cur_user.email)
+        customer_obj.balance = newBalance
+        customer_obj.save()
+        oldCustomer = Customer.objects.get(email = house_obj.email)
+        oldCustomer.balance += house_obj.price
+        oldCustomer.save()
+        house_obj.customer = customer_obj
+        house_obj.email = cur_user.email
+        house_obj.save()
         return redirect('buy')
     else:
-        # context={'msg':"You don't have enough money...!"}
         messages.error(request, "You don't have enough money...!")
         return redirect('buy')
 
@@ -382,3 +397,7 @@ def changeCustomerPage(request,pk):
 def logoutUser(request):
     logout(request)
     return redirect('login')
+
+@login_required(login_url='login')
+def page_not_found_view(request, exception):
+    return render(request, '404.html', status=404)
