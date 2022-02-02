@@ -2,6 +2,7 @@ from django.urls import path
 from django.contrib import admin
 from . import views
 
+
 urlpatterns = [
     path('',views.home,name = 'home'),
     path('login/',views.loginPage,name = 'login'),
@@ -16,4 +17,7 @@ urlpatterns = [
     path('change-selling/<int:pk>',views.changeSellingPage,name="change_selling"),
     path('change-withdrawing/<int:pk>',views.changeWithdrawingPage,name="change_withdrawing"),
     path('change-customer/<int:pk>',views.changeCustomerPage,name="change_customer"),
+    path('delete-house/<int:pk>',views.deleteHousePage,name="delete_house"),
+    
 ]
+

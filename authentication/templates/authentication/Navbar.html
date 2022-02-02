@@ -56,9 +56,17 @@
         height: 64px;
         align-items: center;
       }
+      .logo{
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-left: 1em;
+      }      
 
       @media (max-width: 900px) {
-
+        .logo{
+        margin-left: 0.2em;
+      } 
         .navbar {
           opacity: 0.95;
         }
@@ -169,7 +177,7 @@
       class="navbar navbar-expand-lg navbar-light bg-light"
     >
       <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">Navbar</a>
+        <a class="navbar-brand" href="{% url 'home' %}"><img class="logo" src="{% static 'images/logo.png' %}"></a>
         <button
           class="navbar-toggler"
           type="button"
