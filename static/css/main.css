@@ -1,4 +1,13 @@
 /* utility classes */
+.sideMargin{
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+.textCenter{
+    text-align: center;
+    font-size: 30px; 
+    font-weight: bold;
+}
 .customMarginRight{
     margin-right: 1rem;
 }
@@ -35,7 +44,7 @@
 .balance{
     position: fixed;
     right: 2rem;
-    top: 0.8rem;
+    top: 1.4rem;
     font-size: 20px;
     z-index: 10;
 }
@@ -62,6 +71,26 @@
 }
 
 /* main page styling */
+
+.saleCard{
+    height: 460px;
+}
+.border-hover{
+    background-color: white !important;
+    border-top:5px solid black ;
+    border-bottom:5px solid black ;
+    border-right:5px solid black ;
+    border-left: 10px solid black;
+    animation: all 0.4s ease-in-out;
+    box-shadow: inset 0 0 0 0 #d5d7da;
+    transition: all 0.4s ease-in-out;
+    color: black;
+    cursor: pointer;
+  }
+  .border-hover:hover{
+    box-shadow: inset 384px 0 0 0 rgb(78, 77, 77);
+    color: white;
+  }
 .maind{
     height: 100vh;
     width: 100vw;
@@ -95,7 +124,7 @@ color: white;
 .featureImage{
     height: 250px;
     width: 90%;
-    margin: 0 auto;
+    margin: 1rem auto;
     border-radius: 20px;
 }
 .option{
@@ -119,15 +148,20 @@ color: white;
         margin-top: 1.5rem;
         transition: all 0.3s ease-in-out;
         padding: 1rem;
+        cursor: pointer;
         height: 260px;
     }
     .serviceCard:hover{
         background-color: crimson;
         color: white;
     }
+    
     .serviceCard:hover .serviceContent{
         transform: scale(1.1);
         color: white;
+    }
+    .serviceContent p{
+        font-size: 20px;
     }
     .testimonial{
         min-height: 100vh;
@@ -147,6 +181,10 @@ color: white;
         padding: 1rem;
         background-color: white;
         color: black;
+        height: 400px;
+    }
+    .sliderCard .card-text{
+        
     }
     .avatar{
         display: flex;
@@ -154,7 +192,10 @@ color: white;
         align-items: center;
         margin-bottom: 1rem;
     }
-    
+    .avatar img{
+        height:100px;
+        width: 100px;
+    }
     .footer{
         background-color: #111;
         width: 100%;
@@ -166,22 +207,35 @@ color: white;
     .content_header{
         color: white;
     }
-    .footer_text{
-        cursor: pointer;
-        color: #eaeaea;
-        transition: all 0.3s ease-in-out;
-    }
+    
     .footer_content{
         margin-top: 1rem;
     }
     .footer_content a{
         text-decoration: none;
+<<<<<<< HEAD
+=======
+        font-size: 20px;
+    }
+    .footer_content a i{
+        color: #4267B2;
+>>>>>>> 090e8b2ae7b8005ca74b3af04fdc50a0011e168c
     }
     .footer_text:hover{
         color: white;
     }
+    .footer_text{
+        cursor: pointer;
+        color: #eaeaea;
+        transition: all 0.3s ease-in-out;
+        font-size: 16px !important;
+    }
 
 @media screen and (max-width:900px) {
+    .saleCard{
+        margin-bottom: 1rem;
+        height: 490px;
+    }
     .feature,.service,.testimonial{
         min-height: 100vh;
         width: 100%;
@@ -199,6 +253,7 @@ color: white;
         margin: 0 0rem;
         background-color: white;
         color: black;
+        height: 400px;
     }
     .serviceCard{
         margin: 0 0;
@@ -211,6 +266,19 @@ color: white;
     
 }
 @media screen and (max-width:767px) {
+    .top{
+        margin-top: 1rem;
+    }
+    .border-hover{
+        background-color: white !important;
+        border-top:5px solid black ;
+        border-bottom:5px solid black ;
+        border-right:5px solid black ;
+        border-left: 10px solid black;
+        box-shadow: inset 384px 0 0 0 rgb(78, 77, 77);
+        color: white;
+      }
+     
     .option{
         border-radius: 20px !important;
         padding-top: 1.5rem !important;
@@ -261,6 +329,7 @@ color: white;
     border-radius:10px ;
     box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
 }
+
 
 .cardImg{
     height: 300px;
@@ -353,6 +422,7 @@ color: white;
     font-size: 25px;
     top: 3.5rem;
 }
+<<<<<<< HEAD
 /* -------------STORY PAGE STYLING--------------------- */
 .main-content {
     padding-top: 90px;
@@ -422,4 +492,12 @@ color: white;
 }
 .main-privacy-policy div p{
     padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+=======
+
+/* profile page styling */
+.profileBuyCard{
+    height: 500px;
+    border-radius:10px ;
+    box-shadow: -1px 9px 40px -12px rgba(0,0,0,0.75);
+>>>>>>> 090e8b2ae7b8005ca74b3af04fdc50a0011e168c
 }

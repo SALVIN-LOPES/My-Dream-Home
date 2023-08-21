@@ -1,5 +1,4 @@
-{% extends 'authentication/main.html' %} {% load static %} 
-{% block title %}Profile{% endblock %}
+{% extends 'authentication/main.html' %} {% load static %} {% block title%}Profile{% endblock %}
 {% block content %}
 
 <div class="balance">Bal : <span>&#8377;</span> {{cur_balance}}</div>
@@ -9,7 +8,7 @@
     <div class="row">
       {% if img_house %} {% for house_img,house_detail in img_house.items %}
       <div class="col-lg-4 col-md-6 col-sm-12">
-        <div class="card buyCard mb-4" style="width: 100%">
+        <div class="card profileBuyCard mb-4" style="width: 100%">
           <img
             src="{{ house_img.image.url }}"
             class="card-img-top cardImg"
@@ -35,22 +34,35 @@
             <div class="flex-prop">
               <a
                 href="{% url 'edit_house' house_detail.id %}"
-                class="mt-1 btn btn-warning btn-block w-50"
+                class="mt-1 sideMargin btn btn-warning btn-block w-50"
                 >Edit</a
               >
-              <a href="{% url 'change_selling' house_detail.id %}"  id="sell" class="mt-1 btn btn-primary btn-block w-50"
+              <a
+                href="{% url 'change_selling' house_detail.id %}"
+                id="sell"
+                class="mt-1 sideMargin btn btn-primary btn-block w-50"
                 >Sell</a
               >
             </div>
+            <a
+              href="{% url 'delete_house' house_detail.id %}"
+              class="mt-3 btn btn-danger w-100"
+              >Delete</a
+            >
             {% else %}
-            <a href="{% url 'change_withdrawing' house_detail.id %}"  id="withdraw" class="mt-1 btn btn-dark btn-block w-100"
+            <a
+              href="{% url 'change_withdrawing' house_detail.id %}"
+              id="withdraw"
+              class="mt-1 btn btn-dark btn-block w-100"
               >Withdraw</a
             >
             {% endif %}
           </div>
         </div>
       </div>
-      {% endfor %} {% endif %}
+      {% endfor %} {% else %}
+      <h1 class="textCenter">{{message}}</h1>
+      {% endif %}
     </div>
   </div>
 </div>

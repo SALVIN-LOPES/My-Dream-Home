@@ -72,14 +72,15 @@
                         <!-- <input type="text" name="date"> -->
                         <!-- {{form.date}} -->
                     <!-- </div> -->
-                    <div class="remember">
-                        <label for="#"><input type="checkbox">Remember me</label>
-                    </div>
+                    
                     <div class="inputBx">
                         <input type="submit" value="Sign Up">
                     </div>
 
                     {{form.errors}}
+                    <ul>
+                        <li>{{message}}</li>
+                    </ul>
                     
                     <div class="inputBx">
                         <p>Already have an account? <a href="{% url 'login' %}">Sign In</a> </p>
