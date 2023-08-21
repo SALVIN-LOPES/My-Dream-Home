@@ -1,0 +1,120 @@
+{% extends 'authentication/main.html' %}
+{% load static %}
+
+{% block title %}Our Story{% endblock %}
+
+<!-- 
+<style>
+    .main-content {
+        margin-top: 120px;
+    }
+
+    .main-content .row {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .main-content .label {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .main-content .five_keys {
+        border: 2px solid black;
+    }
+    .main-content .five_keys .one{
+        border: 2px solid red;
+    }
+</style> -->
+
+
+{% block content %}
+
+<!-- -----------------------content---------------------------- -->
+<div class="main-content">
+    <div class="row profile-img">
+        <img class="about-profile-pic" src="{% static 'images/t3.png' %}" alt="profile-img">
+    </div>
+    <div class="row right-content">
+        <div class="content">
+            <h3>HELLO,INTERNET!</h3>
+            <p>Greeting and welcome to Virar Realty!</p>
+            <p>Over the past 30 years we have witnessed many changes in Virar and the Eastern seaboard property market,
+                giving us extensive knowledge and experience which we can share with you.</p>
+            <p>It is now easier than ever to search for properties and get all the details you need to find that perfect
+                new home or condominium in Virar and the surrounding areas.</p>
+            <p>Dealing in property and land can involve a long hard decision making process and we are here to help.
+                Please have a look around the website and don`t hesitate to get in touch if we can be of assistance.</p>
+            <p>Good luck!</p>
+        </div>
+    </div>
+    <div class="about-sign">
+        <div class="sign-img">
+            <img src="{% static 'images/signature.png' %}" alt="">
+            <p>Raj Shah <br>
+                Managing Director,CEO,Co-Founder,Manager....</p>
+        </div>
+    </div>
+    <div class="five_keys">
+        <div class="one">
+            <div class="01-image">
+                <img src={% static 'images\1-2-3-4-about-images\1.png' %} alt="01-img">
+            </div>
+            <div class="01-experience">
+                <h3>EXPERIENCE</h3>
+                <p>At a glance, it is simple enough: someone wants to sell, someone wants to buy. But generally, it is
+                    as not as easy in real life, especially abroad! You must be able to decide what type of property is
+                    best for you and the best location for you. We are able to give you both histories of areas and
+                    properties and give you an idea of what to expect in future as we have been here in Virar for 30
+                    years and have seen its expansion over this period.</p>
+            </div>
+        </div>
+        <div class="two">
+            <div class="02-image">
+                <img src={% static 'images\1-2-3-4-about-images\2.png' %} alt="01-img">
+            </div>
+            <div class="02-tradition">
+                <h3>TRADITION</h3>
+                <p>Virar Realty is a Portugal managed company. We understand what international clients are looking for
+                    here in Dubai with regards to quality and making sure their investments are sound. We speak Marathi,
+                    English, Chinese and French, but we always speak the same language</p>
+            </div>
+        </div>
+        <div class="three">
+            <div class="03-image">
+                <img src={% static 'images\1-2-3-4-about-images\3.png' %} alt="01-img">
+            </div>
+            <div class="03-information">
+                <h3>INFORMATION</h3>
+                <p>We strive to keep all information on the website as relevant and as up to date as possible. Our centralized database allows us to manage our listings efficiently and accurately. Currently there are more than ten thousand records, of which about five thousand are available online on the website. This is one of the largest independent databases in the region.</p>
+            </div>
+        </div>
+        <div class="four">
+            <div class="04-image">
+                <img src={% static 'images\1-2-3-4-about-images\4.png' %} alt="01-img">
+            </div>
+            <div class="04-reliability">
+                <h3>RELIABILITY</h3>
+                <p>When the real estate broker says that "We are always on the client’s side" - The question arises: who is your client? Buyer? Seller? We are always on the side of truth. We will not hide pitfalls or early warning of potential problems. The world is not perfect. But we will always do our best to help you to optimize your decision. This is what shapes our reputation.</p>
+            </div>
+        </div>
+        <div class="five">
+            <div class="05-image">
+                <img src={% static 'images\1-2-3-4-about-images\5.png' %} alt="01-img">
+            </div>
+            <div class="05-support">
+                <h3>SUPPORT</h3>
+                <p>You have bought a property. What's next? Every-day life comes with unplanned and unexpected problems. We will help you to solve them too. Broken air conditioner? Garden or pool care? Renovation work? We'll give you all the help you need!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

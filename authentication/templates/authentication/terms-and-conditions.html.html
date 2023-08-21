@@ -1,0 +1,191 @@
+{% extends 'authentication/main.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .main-conditions div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border: 2px solid #ADACAC; */
+        border-radius: 20px;
+        box-shadow:	#E6E4E4;
+        background-color: #EEE9E9;
+        margin: 5rem 5rem 5rem 5rem;
+
+
+    }
+    .main-conditions div p{
+        padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+    }
+    .legal-terms{
+        visibility: hidden;
+    }
+</style>
+
+
+<div class="legal-terms">
+    <h3>Legal Terms</h3>
+    <p>Confidence, like art, never comes from having all the answers it comes from being open to all the questions</p>
+</div>
+<div class="main-conditions">
+    <div class="terms-and-legal-conditions">
+        <h4>Terms and legal conditions</h4>
+        <p>Virar are given to the best CSS websites in the world from the top designers, agencies and bloggers
+            working today.
+            Winners receive recognition, prestige and media presence. <br> <br>
+            By accessing our website and/or using our services, you agree to be bound by the following terms and
+            conditions. <br> <br>
+            If you do not agree to be bound by these terms, you should leave the website immediately and refrain from
+            using our services. <br> <br>
+            Any changes to this policy will be posted on this page. By accessing our website after such changes are
+            posted, you indicate your acceptance of the revised policy. You should check this page regularly to ensure
+            you are always aware of our terms and conditions. <br> <br>
+            Virar does not guarantee the accuracy, reliability or continuity of any of the information on this
+            website. The content and services offered on this website are for general purposes only and are not intended
+            to address your individual requirements. <br> <br>
+            All material contained on this website is the property of Virar. All rights are reserved and any
+            unauthorized use or reproduction is strictly prohibited. Our content may not be used for commercial purposes
+            unless expressly authorized by Virar. <br> <br>
+            Websites featured on our site remain the intellectual property of their creators. However, by submitting a
+            site, you agree to its publication on our site and reproduction in other publications produced by Virar.
+            <br> <br>
+            Virar accepts no responsibility for the information and/ or content provided on any of our winners'
+            websites. <br> <br>
+            Virar accepts no responsibility for changes made to any winning site subsequent to its appearance on
+            Virar. Altered designs and/ or content may be removed from our database with immediate effect if it is
+            felt that the site in its current form does not meet our standards and criteria.
+        </p>
+    </div>
+    <div class="evaluation-system">
+        <h4>Evaluation system</h4>
+        <p>By submitting a site for an Awwward, you confirm that you have read and accept the following and agree to
+            accept the outcome of the vote in accordance with our evaluation system and criteria as outlined below.
+            <br><br>
+            Our intention is to be fair when evaluating each website submitted for an Awwward, so we’ve created an
+            evaluation system based on 4 criteria: Design, Creativity, Usability and Content.
+        </p>
+    </div>
+    <div class="directory-submission-fees">
+        <h4>Directory and Submission Fees</h4>
+        <p>a. By subscribing to the Virar directory and using the other services offered by Virar, you agree to
+            the current terms and conditions of the site. <br> <br>
+            b. There are three directory plans available: <br><br>
+            <strong>Basic:</strong>No annual cost. Features include: adding your profile to one directory in one
+            country. <br> <br>
+            <strong>Professional:</strong>Annual cost of €150 ($165). Features include: adding your profile to 3
+            categories in one country.<br> <br>
+            <strong>International:</strong>Annual cost of €1500 ($1750). Features include: adding your profile to 5
+            categories, worldwide. <br> <br>
+            c. You can opt to upgrade or downgrade your service agreement to any other contract agreement that Virar
+            is currently offering for sale at any time during your contract term. In the event of a contract downgrade,
+            a discount credit will be issued to your Virar account for the difference in the cost of the two
+            contracts over the remainder of your original contract term. This credit can be applied to future months of
+            service with Virar, and is in no way transferable to a cash refund. <br><br>
+            d. At the end of the contract term, your contract will automatically renew for an additional contract term
+            until explicitly cancelled by you. Cancellation must be issued via your user panel or via Virar customer
+            support. Any cancellation issued via your user panel must be completed at least one (1) working day prior to
+            the end of the contract term. Any cancellation carried out via Virar customer support must be carried out
+            at least three (3) working days prior to the end of the contract term to allow for adequate processing time.
+            <br><br>
+            e. Only Services and features clearly indicated as "free" are free or without charge. It is not the
+            responsibility of Virar to provide free support to you in the use and operation of Virar. <br><br>
+            f. If you purchase any Services that we offer for a Fee, you agree to both Virar and our third party
+            service providers to store your payment information. You give express permission for us to charge you for
+            (i) a monthly Fee for any applicable Services, billed on a monthly basis, (ii) any other Fees for Services
+            you may purchase, and (iii) any applicable taxes in connection with your use of the Services to the payment
+            card you provide and to reimburse us for all collection costs and interest for any overdue amounts. If the
+            card information you provide expires and you do not provide new card information, or cancel your bank
+            account, you authorize us to continue billing you and you agree to remain responsible for any uncollected
+            Fees. <br><br>
+        </p>
+    </div>
+    <div class="termination">
+        <h4>Termination</h4>
+        <p>
+            a. Services may be terminated by us, without cause, at any time. <br><br>
+            b. Services may be terminated by you, without cause, by following the cancellation procedures: (i) via your
+            user panel or (ii) via Virar customer support. <br><br>
+            c. Virar may terminate Services at any time, without penalty and without notice if you fail to comply
+            with any of the terms of this Agreement or the intellectual property protections applicable to these
+            Services. <br><br>
+            d. Notice of termination of Services by Virar may be sent to the contact e-mail associated with your
+            account. Upon termination, Virar has the right to delete all data, files, or other information that is
+            stored in your account. <br><br>
+        </p>
+    </div>
+    <div class="returns-refunds">
+        <h4>Returns & Refunds</h4>
+        <h6>Website submissions</h6>
+        <p>
+            When submitting a website, Virar offers refunding within 5 days after the submission in case the user
+            considers Virar.com hasn't complied with the service proposal. <br><br>
+            Users should note that submitting a site to Virar does not guarantee they will receive a score from the
+            judges. Only sites awarded "Site of the Day" will receive their scores, by means of their publication on our
+            site. <br><br>
+        </p>
+        <h6>Books</h6>
+        <p>
+            Virar offers returns within 14 days of receipt of shipment. <br><br>
+            If the item purchased arrived damaged or defective Virar will take full responsibility and will assume
+            the shipping costs. <br><br>
+            If the reason for the return is not a result of an Virar error, the cost of return shipping will be
+            deducted from your refund. <br><br>
+            Virar cannot accept returns of items purchased in 3rd party stores. Returning and refunding will then be
+            subject to their returning policy. <br><br>
+            If purchased at Virar.com and return is accepted within 14 days, your refund request will be processed
+            instantly. However, it may take 2-3 business days for it to display on your credit card statement. <br><br>
+            In order to get a full refund items must be in new condition and returned with all original packaging and
+            accessories. <br><br>
+
+        </p>
+        <h6>Virar Academy Refund Policies</h6>
+        <p>
+            Courses & Workshops: <br><br>
+            - When a course is bought on <strong>pre-order</strong>, a refund can be requested within 14 days of the
+            course being available to view. <br><br>
+            - When a <strong>ready-to-watch</strong> course is bought, a refund can be requested within 14 days.
+            <br><br>
+            - If the user has viewed over 40% of the course, no refunds will be given. <br><br>
+            To request a refund please give a reason for your request so the teacher understands your decision and
+            can improve the quality and the experience of their course. <br><br>
+
+        </p>
+        <!-- <h6>Privacy policy</h6>
+        <p>
+            The contact and personal information we collect about you will never be shared outside of Virar. <br><br>
+            We may photograph or videotape speakers and attendees for use in online or printed promotions. By virtue of
+            your attendance, you grant us the right to take such photos or videos and to use your likeness in such
+            materials. <br><br>
+        </p> -->
+    </div>
+    <!-- <div class="main-privacy-policy">
+        <h4>Privacy policy</h4>
+        <p>
+            We respect the privacy of everyone who visits our site. We do not collect personal information about our
+            users without their knowledge and prior consent. No scripts or devices are used for this purpose. In order
+            to use certain features of our website we may ask you to register by entering some personal information.
+            This information is given voluntarily and will be used only as stated in the paragraphs below. This
+            information will not be given, traded or sold to any third party without the user's knowledge and prior
+            consent. <br><br>
+            The information provided upon registration, with the exception of your e-mail address, will be displayed on
+            your user profile and we reserve the right to use it in other publications produced by Virar. By
+            registering, you indicate your acceptance of these conditions. Further information may be provided at the
+            user’s discretion but is not compulsory. <br><br>
+            When you submit a website for an Awwward, you will be asked to provide some information about the project.
+            This information will be published on our site and we reserve the right to use it in other publications
+            produced by Virar. By submitting your site, you indicate your acceptance of these conditions. <br><br>
+            We collect some information such as: 1) Pages visited, 2) Click stream data and 3) Other browsing
+            information, for administrative purposes and to improve our website and services. <br><br>
+            Cookies: This website does not use cookies, but it does use third party technologies which use them to
+            provide useful features and services. Cookies identify a user's computer, not the individual user. Most
+            browsers are set to accept cookies by default. You can always set your browser to refuse cookies, but you
+            may not be able to use all the features of our site. <br><br>
+            Children: Virar complies with the requirements of the Children's Online Privacy Protection Act. Virar
+            will not knowingly accept submissions or correspondence from children under 13 years of age without written
+            permission from their parents or legal guardians. <br>
+        </p>
+    </div> -->
+</div>
+{% endblock %}

@@ -1,6 +1,7 @@
 from django.forms import formsets
 from django.forms.models import modelformset_factory
 from django.shortcuts import redirect, render
+from matplotlib.style import context
 # from .models import *
 from .models import House, Image
 from django.http import HttpResponse, request
@@ -251,7 +252,7 @@ def sellPage(request):
                 image = i,
             )
             imageModel.save()
-        return redirect('sell')
+        return redirect('profile')
     context = {'cur_balance':cur_balance}
     return render(request,"authentication/sell.html",context)
 
@@ -377,6 +378,25 @@ def changeCustomerPage(request,pk):
         # context={'msg':"You don't have enough money...!"}
         messages.error(request, "You don't have enough money...!")
         return redirect('buy')
+
+@login_required(login_url='login')
+def showourstory(request):
+
+    context = {}
+    return render(request,"authentication/story.html",context)
+
+@login_required(login_url='login')
+def terms_and_conditions(request):
+
+    context = {}
+    return render(request,"authentication/terms-and-conditions.html.",context)
+
+@login_required(login_url='login')
+def privacy_policy(request):
+
+    context = {}
+    return render(request,'authentication/privacypolicy.html',context)
+
 
 @login_required(login_url='login')
 def logoutUser(request):

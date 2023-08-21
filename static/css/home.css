@@ -63,3 +63,26 @@
         font-size: 10px;
     }
 }
+
+/* Features */
+.feature .containers .row .card-body .price-property{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* .feature .containers .row .card .card-img-top{
+    background-position: center;
+} */
+
+.feature .containers .row .card-body .price-property .price{
+    font-size: 2rem;
+    margin-right: 7px;
+}
+.feature .containers .row .card-body .property-details{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}

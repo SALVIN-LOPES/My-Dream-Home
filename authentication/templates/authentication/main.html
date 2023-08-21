@@ -28,7 +28,7 @@
               <div class="col-lg-3 col-md-6  col-sm-12">
                   <div class="footer_content">
                       <h4 class="content_header">About Us</h4>
-                      <p class="footer_text">Our Story</p>
+                      <a href="{% url 'our_story' %}"><p class="footer_text" >Our Story</p></a>
                       <p class="footer_text">Benefits</p>
                       <p class="footer_text">FAQs</p>
                   </div>
@@ -36,13 +36,13 @@
               <div class="col-lg-3 col-md-6  col-sm-12">
                   <div class="footer_content">
                       <h4 class="content_header">Legal</h4>
-                      <p class="footer_text">Terms and Conditions</p>
-                      <p class="footer_text">Privacy Policy</p>
+                      <a href="{% url 'terms_and_conditions' %}"><p class="footer_text">Terms and Conditions</p></a>
+                      <a href="{% url 'privacy_policy' %}"><p class="footer_text">Privacy Policy</p></a>
                   </div>
               </div>
               <div class="col-lg-3 col-md-6  col-sm-12">
                   <div class="footer_content">
-                      <h4 class="content_header">Kepp in touch</h4>
+                      <h4 class="content_header">Keep in touch</h4>
                       <p class="footer_text">RealEstate@gmail.com</p>
                       <p class="footer_text">9864316198</p>
                   </div>
