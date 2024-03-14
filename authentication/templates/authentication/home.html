@@ -1,312 +1,469 @@
-{% extends 'authentication/main.html' %}
-{% load static %}
+{% extends 'authentication/main.html' %} {% load static %} {% block title %}
+Home {% endblock %} {% block content %}
 
-{% block title %}
-Home
-{% endblock %}
+<div class="balance">Bal : <span>&#8377;</span> {{cur_balance}}</div>
 
-{% block content %}
-
-<div class="balance">
-    Bal : <span>&#8377;</span> {{cur_balance}}
+<!-- main -->
+<div class="main" id="main">
+  <div class="mainContent">
+    <div>
+      <h1 class="mainText" style="font-size: 40px">
+        Find Your Best Real Estate
+      </h1>
+    </div>
+    <div>
+      <p style="font-size: 18px; margin-bottom: 1rem" class="subText">
+        We handle everything for you under one roof.Now you finally save all the
+        stress, time and extra costs,with hundreds of design possibilities from
+        leading architects
+      </p>
+    </div>
+    <div class="option" style="">
+      <div>
+        <strong>City/Streets</strong>
+        <p>New York</p>
+      </div>
+      <div>
+        <strong>Select-Property</strong>
+        <p>Minimalist</p>
+      </div>
+      <div>
+        <strong>Select-Price</strong>
+        <p>20 Lac - 10 Crore</p>
+      </div>
+      <a href="{% url 'buy' %}" class="searchIcon">
+        <img
+          height="30px"
+          width="30px"
+          src="{% static 'images/search.png' %}" />
+      </a>
+    </div>
   </div>
-        
-        <!-- main -->
-        <div class="main" id="main">
-            <div class="mainContent">
-                <div >
-                    <h1 class="mainText" style="font-size: 40px;">Find Your Best Real Estate</h1>
-                </div>
-                <div >
-                    <p style="font-size:18px ;margin-bottom: 1rem;" class="subText">We handle everything for you under one roof.Now you finally save all the stress, time and extra
-                        costs,with hundreds of design possibilities from leading architects</p>
-                </div>
-                <div class="option" style="">
-                    <div>
-                        <strong>City/Streets</strong>
-                        <p>New York</p>
-                    </div>
-                    <div>
-                        <strong>Select-Property</strong>
-                        <p>Minimalist</p>
-                    </div>
-                    <div>
-                        <strong>Select-Price</strong>
-                        <p>20 Lac - 10 Crore</p>
-                    </div>
-                    <a href="{% url 'buy' %}" class="searchIcon">
-                        <img height="30px" width="30px" src="{% static 'images/search.png' %}">
-                    </a>
-                </div>
+</div>
+
+<!-- feature -->
+<div class="feature" id="feature" style="padding: 2rem">
+  <div class="containers" style="padding-top: 4rem">
+    <div style="display: flex; justify-content: center; align-items: center">
+      <hi
+        style="
+          font-size: 30px;
+          text-transform: uppercase;
+          margin-bottom: 3rem;
+          text-align: center;
+          clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%);
+          padding: 1rem 2rem;
+          background-color: black;
+        "
+        >Feature Properties</hi
+      >
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-lg-4 col-sm-12">
+        <div class="card cards">
+          <img
+            class="card-img-top featureImage"
+            src="{% static 'images/Features-p-01.jpg' %}"
+            alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Kherwadi, Bandra East, Mumbai</h5>
+            <div class="price-property">
+              <div class="price">
+                <strong>₹2,960,000</strong>
+              </div>
+              <div class="for-sale">
+                <p>(For sale)</p>
+              </div>
             </div>
+            <div class="property-details">
+              <p>Beds : 4</p>
+              <p>Sq. Ft : 5,000</p>
+              <p>Baths : 4 | 1</p>
+            </div>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            <a href="#" class="btn btn-primary">View property</a>
+          </div>
         </div>
+      </div>
 
-        <!-- feature -->
-        <div class="feature" id="feature" style="padding: 2rem;" >
-            <div class="containers" style="padding-top: 4rem;">
-                <div style="display: flex;justify-content: center;align-items: center;">
-                    <hi style="font-size:30px ; text-transform: uppercase;margin-bottom: 3rem;text-align: center;clip-path: polygon(100% 0,93% 50%,100% 99%,0% 100%,7% 50%,0% 0%);padding: 1rem 2rem;  background-color: black;">Feature Properties</hi>
-                </div>
-                <div class="row">
-<<<<<<< HEAD
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card cards" style="">
-                            <img class="card-img-top featureImage" src="{% static 'images/Features-p-01.jpg' %}" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Kherwadi, Bandra East, Mumbai</h5>
-                                <div class="price-property">
-                                    <div class="price">
-                                        <strong>₹2,960,000</strong>
-                                    </div>
-                                    <div class="for-sale">
-                                        <p>(For sale)</p>
-                                    </div>
-                                </div>
-                                <div class="property-details">
-                                    <p>Beds : 4</p>
-                                    <p>Sq. Ft : 5,000</p>
-                                    <p>Baths : 4 | 1</p>
-                                </div>
-                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                <a href="#" class="btn btn-primary">View property</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card cards" style="">
-                            <img class="card-img-top featureImage" src="{% static 'images/Features-p-02.jpg' %}" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Nishigandha, Bandra East, Mumbai</h5>
-                                <div class="price-property">
-                                    <div class="price">
-                                        <strong>₹4,580,000</strong>
-                                    </div>
-                                    <div class="for-sale">
-                                        <p>(For sale)</p>
-                                    </div>
-                                </div>
-                                <div class="property-details">
-                                    <p>Beds : 5</p>
-                                    <p>Sq. Ft : 5,500</p>
-                                    <p>Baths : 5 | 2</p>
-                                </div>
-                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                <a href="#" class="btn btn-primary">View property</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-lg-4 col-sm-12">
-                        <div class="card cards" style="">
-                            <img class="card-img-top featureImage" src="{% static 'images/Features-p-03.jpg' %}" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Chikhal dongari, Mumbai</h5>
-                                <div class="price-property">
-                                    <div class="price">
-                                        <strong>₹2,000,000</strong>
-                                    </div>
-                                    <div class="for-sale">
-                                        <p>(For sale)</p>
-                                    </div>
-                                </div>
-                                <div class="property-details">
-                                    <p>Beds : 2</p>
-                                    <p>Sq. Ft : 3,000</p>
-                                    <p>Baths : 2 | 1</p>
-                                </div>
-                                <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
-                                <a href="#" class="btn btn-primary">View property</a>
-=======
-                    {% for img,house in sale.items %}
-                        <div class="col-md-4 col-lg-4 col-sm-12">
-                            <div class="card saleCard border-hover" style="">
-                                <img class="card-img-top featureImage" src="{{img.image.url}}" alt="Card image cap">
-                                <div class="card-body ">
-                                    <h5 class="card-title" style="text-align: center;"><span>&#8377;</span> {{house.price}} ( For Sale )</h5>
-                                    <div class="row">
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: center;font-size: 20px;">{{house.property_type}}</div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: center;font-size: 20px;">{{house.view}}</div>
-                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4" style="text-align: center;font-size: 20px;">{{house.location}}</div>
-                                    </div>
-                                </div>
-                                <a href="{% url 'individual_house' house.id %}" class="btn btn-dark w-100">View More</a>
->>>>>>> 090e8b2ae7b8005ca74b3af04fdc50a0011e168c
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
+      <div class="col-md-4 col-lg-4 col-sm-12">
+        <div class="card cards" style="">
+          <img
+            class="card-img-top featureImage"
+            src="{% static 'images/Features-p-02.jpg' %}"
+            alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Nishigandha, Bandra East, Mumbai</h5>
+            <div class="price-property">
+              <div class="price">
+                <strong>₹4,580,000</strong>
+              </div>
+              <div class="for-sale">
+                <p>(For sale)</p>
+              </div>
             </div>
+            <div class="property-details">
+              <p>Beds : 5</p>
+              <p>Sq. Ft : 5,500</p>
+              <p>Baths : 5 | 2</p>
+            </div>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            <a href="#" class="btn btn-primary">View property</a>
+          </div>
         </div>
+      </div>
 
-        <!-- service -->
-        <div class="service" id="service">
-            <div style="text-align: center;display: flex;justify-content: center;align-items: center;flex-direction: column;padding-top: 5rem;">
-                <h1>The <span style="color: crimson;font-size: 35px;">Services</span> You Get From Restate</h1>
-                <p style="font-size: 18px;">Some people choose price as primary reason, Those companies that get customers because of low price will loose those customers.</p>
+      <div class="col-md-4 col-lg-4 col-sm-12">
+        <div class="card cards" style="">
+          <img
+            class="card-img-top featureImage"
+            src="{% static 'images/Features-p-03.jpg' %}"
+            alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">Chikhal dongari, Mumbai</h5>
+            <div class="price-property">
+              <div class="price">
+                <strong>₹2,000,000</strong>
+              </div>
+              <div class="for-sale">
+                <p>(For sale)</p>
+              </div>
             </div>
-            <div class="containers">
-                <div class="row">
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="card serviceCard">
-                            <i style="color:black" class="fa-solid fa-house"></i>
-                            <div class="card-body serviceContent">
-
-                              <h5 class="card-title" style="font-weight: bold;font-size: 35px;">Buy Properties</h5>
-                              <p class="card-text">Find 19975+ latest real estate properties for safe in April 2021 . Search by price, size and preferred location.</p>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="card serviceCard ">
-                            <div class="card-body serviceContent">
-                              <h5 class="card-title" style="font-weight: bold;font-size: 35px;">Sell Properties</h5>
-                              <p class="card-text">Sale is a transfer of ownership In exchange for a price paid or promised or part paid and part promised.</p>
-                              
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="card serviceCard ">
-                            <div class="card-body serviceContent">
-                              <h5 class="card-title" style="font-weight: bold;font-size: 35px;">Construction</h5>
-<<<<<<< HEAD
-                              <p class="card-text">we dream, create, design, and build the most wonderful place in the world. But it requires people to make the dream a reality.</p>
-                              <div style="display: flex;justify-content: center;align-items: center;">
-                                <button class="btn btn-primary">View More</button>
-                            </div>
-=======
-                              <p class="card-text">We dream, create, design and build the most wonderful place in the world. But it requires people to make the dream a reality.</p>
->>>>>>> 090e8b2ae7b8005ca74b3af04fdc50a0011e168c
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="property-details">
+              <p>Beds : 2</p>
+              <p>Sq. Ft : 3,000</p>
+              <p>Baths : 2 | 1</p>
             </div>
+            <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+            <a href="#" class="btn btn-primary">View property</a>
+          </div>
         </div>
-    
+      </div>
 
-        <!-- testimonials and footer -->
-        <div class="testimonial" id="testimonial">
-            <div style="display: flex;justify-content: center;align-items: center;padding-top: 5rem;">
-                <hi style="font-size:30px ; text-transform: uppercase;color:white;text-align: center;clip-path: polygon(100% 0,93% 50%,100% 99%,0% 100%,7% 50%,0% 0%);padding: 1rem 2rem;  background-color: black;">Testimonials</hi>
-            </div>
-            <p style="text-align: center;font-weight: bold;font-size: 18px;margin-top: 1rem;">What our clients say about us.</p>
-            <div class="container sliderContainer">
-                <div class="slider">
-                    <div class="slider_item"> 
-                        <div class="card sliderCard">
-                            <div class="card-body" style="text-align: center;">
-                                <div class="avatar" >
-                                    <img src="{% static 'images/t1.png' %}"  style="border-radius: 50%;">
-                                </div>
-                              <h5 class="card-title">John Lee</h5>
-                              <p class="card-text">Best Decision I’ve Ever Made!!! I was in a situation where I needed to get out of my house ASAP and Raj came through for Me!!! Nobody else will ever beat his services and I’m relieved I don’t have the financial stress any longer!!! I will forever be grateful for what he did for me!!!”.</p>
-                               </div>
-                          </div>
-                    </div>
-                    <div class="slider_item">
-                        <div class="card sliderCard">
-                            <div class="card-body" style="text-align: center;">
-                                <div class="avatar" >
-                                    <img src="{% static 'images/t2.png' %}"  style="border-radius: 50%;">
-                                </div>
-                              <h5 class="card-title">Brixton</h5>
-                              <p class="card-text">I inherited a house and couldn’t sell it, but found Raj online. I was skeptical, but their offer was fair, we closed on time, and I’d work with him again.</p>
-                               </div>
-                          </div>
-                    </div>
-                    <div class="slider_item">
-                        <div class="card sliderCard">
-                            <div class="card-body" style="text-align: center;">
-                                <div class="avatar" >
-                                    <img src="{% static 'images/t3.png' %}"  style="border-radius: 50%;">
-                                </div>
-                                <h5 class="card-title">Bryson</h5>
-                                <p class="card-text">Thank you for all your help and walking me through the mess I got stuck with. You explained everything and went over the contract step by step; never once did your answers change.</p>
-                                 </div>
-                        </div>
-                    </div>
-                    <div class="slider_item">
-                        <div class="card sliderCard">
-                            <div class="card-body" style="text-align: center;">
-                                <div class="avatar" >
-                                    <img src="{% static 'images/t4.png' %}"  style="border-radius: 50%;">
-                                </div>
-                                <h5 class="card-title">Charleston</h5>
-                                <p class="card-text">I have sold and/or bought with Salvin & Raj now four times! The fact that I keep coming back is a great indication of their level of service and commitment. As always, my newest purchase was smooth and absolutely excellent. Thanks for everything!</p>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="slider_item">
-                        <div class="card sliderCard">
-                            <div class="card-body" style="text-align: center;">
-                                <div class="avatar" >
-                                    <img src="{% static 'images/t5.png' %}"  style="border-radius: 50%;">
-                                </div>
-                                <h5 class="card-title">Ebeneze</h5>
-                                <p class="card-text">It has been a real pleasure working with your team again. Everyone is always very professional to work with, pleasant to communicate with, and incredibly responsive to our needs. I’m amazed it all went so smoothly!  — We were almost positive we would spend at least 6 months renting.</p>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="slider_item">
-                        <div class="card sliderCard">
-                            <div class="card-body" style="text-align: center;">
-                                <div class="avatar" >
-                                    <img src="{% static 'images/t6.png' %}"  style="border-radius: 50%;">
-                                </div>
-                                <h5 class="card-title">Garret</h5>
-                                <p class="card-text">Thank you so much… You are such good marketers and have such good taste. We have already told lots of people how fortunate we were to have selected you guys as our agents and how great the experience was. All the best.</p>
-                                </div>
-                        </div>
-                    </div>
-                </div>
+      <br />
 
-                <!--  -->
+      {% for img,house in sale.items %}
+      <div class="col-md-4 col-lg-4 col-sm-12">
+        <div class="card saleCard border-hover" style="">
+          <img
+            class="card-img-top featureImage"
+            src="{{img.image.url}}"
+            alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title" style="text-align: center">
+              <span>&#8377;</span> {{house.price}} ( For Sale )
+            </h5>
+            <div class="row">
+              <div
+                class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                style="text-align: center; font-size: 20px">
+                {{house.property_type}}
+              </div>
+              <div
+                class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                style="text-align: center; font-size: 20px">
+                {{house.view}}
+              </div>
+              <div
+                class="col-lg-4 col-md-4 col-sm-4 col-xs-4"
+                style="text-align: center; font-size: 20px">
+                {{house.location}}
+              </div>
             </div>
+          </div>
+          <a
+            href="{% url 'individual_house' house.id %}"
+            class="btn btn-dark w-100"
+            >View More</a
+          >
         </div>
+      </div>
+      {% endfor %}
 
-      
+      <!-- service -->
+      <div class="service" id="service">
+        <div
+          style="
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding-top: 5rem;
+          ">
+          <h1>
+            The
+            <span style="color: crimson; font-size: 35px">Services</span> You
+            Get From Restate
+          </h1>
+          <p style="font-size: 18px">
+            Some people choose price as primary reason, Those companies that get
+            customers because of low price will loose those customers.
+          </p>
+        </div>
+        <div class="containers">
+          <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="card serviceCard">
+                <i style="color: black" class="fa-solid fa-house"></i>
+                <div class="card-body serviceContent">
+                  <h5
+                    class="card-title"
+                    style="font-weight: bold; font-size: 35px">
+                    Buy Properties
+                  </h5>
+                  <p class="card-text">
+                    Find 19975+ latest real estate properties for safe in April
+                    2021 . Search by price, size and preferred location.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="card serviceCard">
+                <div class="card-body serviceContent">
+                  <h5
+                    class="card-title"
+                    style="font-weight: bold; font-size: 35px">
+                    Sell Properties
+                  </h5>
+                  <p class="card-text">
+                    Sale is a transfer of ownership In exchange for a price paid
+                    or promised or part paid and part promised.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12">
+              <div class="card serviceCard">
+                <div class="card-body serviceContent">
+                  <h5
+                    class="card-title"
+                    style="font-weight: bold; font-size: 35px">
+                    Construction
+                  </h5>
+                  <p class="card-text">
+                    we dream, create, design, and build the most wonderful place
+                    in the world. But it requires people to make the dream a
+                    reality.
+                  </p>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                    ">
+                    <button class="btn btn-primary">View More</button>
+                  </div>
+                  <!-- <p class="card-text">
+                    We dream, create, design and build the most wonderful place
+                    in the world. But it requires people to make the dream a
+                    reality.
+                  </p> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    {% endblock %}
+      <!-- testimonials and footer -->
+      <div class="testimonial" id="testimonial">
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 5rem;
+          ">
+          <hi
+            style="
+              font-size: 30px;
+              text-transform: uppercase;
+              color: white;
+              text-align: center;
+              clip-path: polygon(
+                100% 0,
+                93% 50%,
+                100% 99%,
+                0% 100%,
+                7% 50%,
+                0% 0%
+              );
+              padding: 1rem 2rem;
+              background-color: black;
+            "
+            >Testimonials</hi
+          >
+        </div>
+        <p
+          style="
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 1rem;
+          ">
+          What our clients say about us.
+        </p>
+        <div class="container sliderContainer">
+          <div class="slider">
+            <div class="slider_item">
+              <div class="card sliderCard">
+                <div class="card-body" style="text-align: center">
+                  <div class="avatar">
+                    <img
+                      src="{% static 'images/t1.png' %}"
+                      style="border-radius: 50%" />
+                  </div>
+                  <h5 class="card-title">John Lee</h5>
+                  <p class="card-text">
+                    Best Decision I’ve Ever Made!!! I was in a situation where I
+                    needed to get out of my house ASAP and Raj came through for
+                    Me!!! Nobody else will ever beat his services and I’m
+                    relieved I don’t have the financial stress any longer!!! I
+                    will forever be grateful for what he did for me!!!”.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="slider_item">
+              <div class="card sliderCard">
+                <div class="card-body" style="text-align: center">
+                  <div class="avatar">
+                    <img
+                      src="{% static 'images/t2.png' %}"
+                      style="border-radius: 50%" />
+                  </div>
+                  <h5 class="card-title">Brixton</h5>
+                  <p class="card-text">
+                    I inherited a house and couldn’t sell it, but found Raj
+                    online. I was skeptical, but their offer was fair, we closed
+                    on time, and I’d work with him again.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="slider_item">
+              <div class="card sliderCard">
+                <div class="card-body" style="text-align: center">
+                  <div class="avatar">
+                    <img
+                      src="{% static 'images/t3.png' %}"
+                      style="border-radius: 50%" />
+                  </div>
+                  <h5 class="card-title">Bryson</h5>
+                  <p class="card-text">
+                    Thank you for all your help and walking me through the mess
+                    I got stuck with. You explained everything and went over the
+                    contract step by step; never once did your answers change.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="slider_item">
+              <div class="card sliderCard">
+                <div class="card-body" style="text-align: center">
+                  <div class="avatar">
+                    <img
+                      src="{% static 'images/t4.png' %}"
+                      style="border-radius: 50%" />
+                  </div>
+                  <h5 class="card-title">Charleston</h5>
+                  <p class="card-text">
+                    I have sold and/or bought with Salvin & Raj now four times!
+                    The fact that I keep coming back is a great indication of
+                    their level of service and commitment. As always, my newest
+                    purchase was smooth and absolutely excellent. Thanks for
+                    everything!
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="slider_item">
+              <div class="card sliderCard">
+                <div class="card-body" style="text-align: center">
+                  <div class="avatar">
+                    <img
+                      src="{% static 'images/t5.png' %}"
+                      style="border-radius: 50%" />
+                  </div>
+                  <h5 class="card-title">Ebeneze</h5>
+                  <p class="card-text">
+                    It has been a real pleasure working with your team again.
+                    Everyone is always very professional to work with, pleasant
+                    to communicate with, and incredibly responsive to our needs.
+                    I’m amazed it all went so smoothly! — We were almost
+                    positive we would spend at least 6 months renting.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="slider_item">
+              <div class="card sliderCard">
+                <div class="card-body" style="text-align: center">
+                  <div class="avatar">
+                    <img
+                      src="{% static 'images/t6.png' %}"
+                      style="border-radius: 50%" />
+                  </div>
+                  <h5 class="card-title">Garret</h5>
+                  <p class="card-text">
+                    Thank you so much… You are such good marketers and have such
+                    good taste. We have already told lots of people how
+                    fortunate we were to have selected you guys as our agents
+                    and how great the experience was. All the best.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-    <script>
-        $(document).ready(function(){
-           
-    $('.slider').slick({
-      dots: true,
-      infinite: true,
-      
-      speed: 300,
-      slidesToShow: 3,
-      slidesToScroll: 1,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1,
+          <!--  -->
+        </div>
+      </div>
+
+      {% endblock %}
+
+      <script>
+        $(document).ready(function () {
+          $(".slider").slick({
+            dots: true,
             infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 1
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-        // You can unslick at a given breakpoint now by adding:
-        // settings: "unslick"
-        // instead of a settings object
-      ]
-    }); 
+
+            speed: 300,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                  infinite: true,
+                  dots: true,
+                },
+              },
+              {
+                breakpoint: 600,
+                settings: {
+                  slidesToShow: 2,
+                  slidesToScroll: 1,
+                },
+              },
+              {
+                breakpoint: 480,
+                settings: {
+                  slidesToShow: 1,
+                  slidesToScroll: 1,
+                },
+              },
+              // You can unslick at a given breakpoint now by adding:
+              // settings: "unslick"
+              // instead of a settings object
+            ],
+          });
         });
-    </script>
+      </script>
+    </div>
+  </div>
+</div>

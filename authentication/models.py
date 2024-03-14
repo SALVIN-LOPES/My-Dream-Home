@@ -27,7 +27,7 @@ class House(models.Model):
     purpose = models.CharField(max_length=200,null=True,blank=True)
 
     def __str__(self):
-        return self.customer.name    
+        return self.customer.name
 
 class Image(models.Model):
     house = models.ForeignKey(House,default=None,on_delete=models.CASCADE)

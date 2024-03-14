@@ -30,7 +30,7 @@ class HouseForm(ModelForm):
         }
 
 class ImageForm(ModelForm):
-    images = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    images = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': False}))
 
     # class Meta(NoteForm.Meta):
     #     fields = NoteForm.Meta.fields + ['images',]

@@ -1,5 +1,5 @@
-{% extends 'authentication/main.html' %} {% load static %} {% block title%}Profile{% endblock %}
-{% block content %}
+{% extends 'authentication/main.html' %} {% load static %} {% block title %}
+Profile {% endblock %} {% block content %}
 
 <div class="balance">Bal : <span>&#8377;</span> {{cur_balance}}</div>
 
@@ -12,8 +12,7 @@
           <img
             src="{{ house_img.image.url }}"
             class="card-img-top cardImg"
-            alt="..."
-          />
+            alt="..." />
           <div class="card-body">
             <!-- <h5 class="card-title">Card title</h5>
                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

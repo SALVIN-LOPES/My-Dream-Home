@@ -1,7 +1,6 @@
 from django.forms import formsets
 from django.forms.models import modelformset_factory
 from django.shortcuts import redirect, render
-from matplotlib.style import context
 # from .models import *
 from .models import House, Image
 from django.http import HttpResponse, request
@@ -16,8 +15,6 @@ from django.contrib import messages
 import random
 # from authentication.decorators import unauthenticated_user
 
-
-
 # get current balance
 def get_cur_balance(request):
     cur_user  = request.user
@@ -29,6 +26,8 @@ sale_houses = list(House.objects.all())
 @login_required(login_url='login')
 def home(request):
     cur_balance = get_cur_balance(request)
+    print("user email = ",request.user.email)
+    # print(request.user.email)
     saleHouse = random.sample(sale_houses,3)
     sale={}
     for i in saleHouse:
@@ -52,7 +51,6 @@ def loginPage(request):
                 return redirect('home')
             else:
                 messages.info(request,'Username or Password is Incorrect')
-
 
         context = {}
         return render(request,'authentication/login.html',context)
