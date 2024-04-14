@@ -18,8 +18,9 @@ import random
 # get current balance
 def get_cur_balance(request):
     cur_user  = request.user
-    customer = Customer.objects.get(email = cur_user.email)
+    customer = Customer.objects.filter(email = cur_user.email).first()
     return customer.balance
+    # return 1200
 
 sale_houses = list(House.objects.all())
 # Create your views here.
